@@ -12,8 +12,9 @@
 
 
     /*WRAPPER BACKGROUND COLOR*/
-    --card-bg-color:#F7EFE6;
+    --card-bg-color:rgba(247, 239, 230, 0.9);
     --card-border-radius: 10px;
+    --img-wrapper-bg-large:url("wrapper_cont_bg.jpg");
 
 
     --loop-iterate: transparent;
@@ -76,8 +77,9 @@
     --border: transparent;
 
     /*MASTER PLAY*/
-    --bg-master: #576B68;    --bg-btn-updown: transparent;
-    --txt-master: #F7EFE6;
+    --bg-master: transparent;
+    --bg-btn-updown: transparent;
+    --txt-master: #576B68;
     --img-master-play: url("master_play.svg");
     --img-master-stop: url("master_stop.svg");
     --txt_progress_color: black;
@@ -110,7 +112,7 @@
     /* --btn-play: #00B93F; */
     /* --btn-stop: red; */
     /* --txt-pre2: yellow; */
-    --card-border: solid 1px rgb(0, 0, 0); */
+    --card-border: solid 1px rgb(0, 0, 0); 
     border: solid 0.5px red;
     /* --img-header-right: url("viva_acid_logo2.svg"); for hex value - comment img out */
     /* --bg-header-right: transparent;
@@ -156,7 +158,7 @@
     --radius-lg: 0px;
 
     --card-init-width: 280px;
-    --card-init-height: 320px;
+    --card-init-height: 100vh;
     --alert-width: 300px;
     --slider-size: 17px;
 

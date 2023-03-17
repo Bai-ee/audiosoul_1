@@ -299,8 +299,9 @@ function mainTimline() {
   tlStageBlock = gsap.timeline({delay:0});
   tlStageBlock.timeScale( 2 ); 
   tlStageBlock.to("#stageBlock", {duration:2, autoAlpha:0},0);
-  tlStageBlock.from("#wrapper", {duration:1, autoAlpha:0}),0.5;
-  tlStageBlock.to("#circle", {duration:2, autoAlpha:1},2.5);
+  tlStageBlock.from("#wrapper_cont", {duration:1, autoAlpha:0}),0.5;
+  tlStageBlock.from("#wrapper", {duration:1, autoAlpha:0}),1.5;
+  tlStageBlock.to("#circle", {duration:2, autoAlpha:1},3);
   tlStageBlock.to("#header, #presets, #pre2, #boxes_cont, #cont_slider_boxes, #master_controls, #progress_cont, .marquee, #footer", {duration:3, stagger:0.35, autoAlpha:1, delay:1, ease:"Power4.easeInOut"},.5);
   tlStageBlock.to("#wrapper", {duration:0.25, height:"100%", width:"100%", ease:"Power1.easeOut"},0);
   tlStageBlock.to('.loader, #wrapper_bg p', {duration:0.25,opacity: 0},0);

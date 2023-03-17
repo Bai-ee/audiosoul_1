@@ -417,7 +417,7 @@ document.getElementById("preview").addEventListener("mouseover", preview);
 document.getElementById("preview").addEventListener("mouseout", stopPreview);
 
 var tlFlipCard = gsap.timeline({paused: true});
-tlFlipCard.to("#wrapper_cont", {duration:0.5, rotationY:"+=180",ease:"Back.easeInOut"})
+tlFlipCard.to("#wrapper_cont", {duration:0.75, rotationY:"+=90",ease:"Back.easeIn", opacity:0})
 
 let testBool = true;
 let showDirections = false;
