@@ -336,6 +336,7 @@
   
   .preview.stop {
     background-image: var(--img-box-stop);
+    background-color: transparent;
   }
   
   .previewDuration , #totalDuration, #progress_total, #progress_current{
@@ -761,7 +762,15 @@
   }
   
   .box.isactive {
-    border: 1px solid var(--active-border);
+    /* border: 1px solid var(--active-border); */
+    border: 1px solid #576B68;
+    border-radius: 10px;
+    font-size:10px;
+    width:100%;
+    text-align:center;
+    color:#576B68;
+    /* background-color:#576B68; */
+    
   }
   
   .box.isnotactive {
@@ -946,31 +955,45 @@
     flex: 1 auto;
     height: 28px;
     max-height: 28px;
+    max-width:70px;
     background-repeat: no-repeat;
     background-size: contain;
+    padding-top: 6px;
+    /* color:#576B68 */
   }
   
   #preset_img_1 {
-    background-color: var(--pre_1_col);
-    background-image: url("lrge_hover1.svg");
+    border: 1px solid #576B68;
+    border-radius: 5px;
+    font-size:10px;
+    width:100%;
+    text-align:center;
+    color:#CBC1AE;
+    background-color:#576B68;
   }
   
   #preset_img_1:hover {
-    background-color: var(--pre_1_col_hover);
-    /* background-image: url("lrge_active1.svg"); */
   }
   #preset_img_1.active,
   #preset_img_1.active:hover {
-    background-color: var(--pre_1_col_active);
-    background-image: url("lrge.svg");
+    border: 1px solid #576B68;
+    border-radius: 5px;
+    font-size:10px;
+    width:100%;
+    text-align:center;
+    color:#576B68;
+    background-color:transparent;
   }
   
-  
-  
-  
   #preset_img_2 {
-    background-image: url("lrge_hover2.svg");
-  
+    /* background-image: url("lrge_hover2.svg"); */
+    border: 1px solid #576B68;
+    border-radius: 5px;
+    font-size:10px;
+    width:100%;
+    text-align:center;
+    color:#CBC1AE;
+    background-color:#576B68;
   }
   
   #preset_img_2:hover {
@@ -978,38 +1001,73 @@
   }
   #preset_img_2.active,
   #preset_img_2.active:hover {
-    background-image: url("lrge2.svg");
+    /* background-image: url("lrge2.svg"); */
+    border: 1px solid #576B68;
+    border-radius: 5px;
+    font-size:10px;
+    width:100%;
+    text-align:center;
+    color:#576B68;
+    background-color:transparent;
   }
   
   
   #preset_img_3 {
-    background-color: var(--pre_3_col);
-    background-image: url("lrge_hover3.svg");
+    /* background-color: var(--pre_3_col);
+    background-image: url("lrge_hover3.svg"); */
+    border: 1px solid #576B68;
+    border-radius: 5px;
+    font-size:10px;
+    width:100%;
+    text-align:center;
+    color:#CBC1AE;
+    background-color:#576B68;
   }
   
   #preset_img_3:hover {
-    background-color: var(--pre_3_col_hover);
+    /* background-color: var(--pre_3_col_hover); */
     /* background-image: url("lrge_active3.svg"); */
   }
   #preset_img_3.active,
   #preset_img_3.active:hover {
-    background-color: var(--pre_3_col_active);
-    background-image: url("lrge3.svg");
+    /* background-color: var(--pre_3_col_active); */
+    /* background-image: url("lrge3.svg"); */
+    border: 1px solid #576B68;
+    border-radius: 5px;
+    font-size:10px;
+    width:100%;
+    text-align:center;
+    color:#576B68;
+    background-color:transparent;
   }
   
   #preset_img_4 {
-    background-color: var(--pre_4_col);
-    background-image: url("lrge_hover4.svg");
+    /* background-color: var(--pre_4_col);
+    background-image: url("lrge_hover4.svg"); */
+    border: 1px solid #576B68;
+    border-radius: 5px;
+    font-size:10px;
+    width:100%;
+    text-align:center;
+    color:#CBC1AE;
+    background-color:#576B68;
   }
   
   #preset_img_4:hover {
-    background-color: var(--pre_4_col_hover);
+    /* background-color: var(--pre_4_col_hover); */
     /* background-image: url("lrge_active4.svg"); */
   }
   #preset_img_4.active,
   #preset_img_4.active:hover {
-    background-color: var(--pre_4_col_active);
-    background-image: url("lrge4.svg");
+    /* background-color: var(--pre_4_col_active); */
+    /* background-image: url("lrge4.svg"); */
+    border: 1px solid #576B68;
+    border-radius: 5px;
+    font-size:10px;
+    width:100%;
+    text-align:center;
+    color:#576B68;
+    background-color:transparent;
   }
   
   #pre, #pre2 {
@@ -1646,15 +1704,6 @@
 
   }
 
-
-
-
-
-
-  
-
-
-  
     @media screen and (min-height: 250px),
            screen and (max-height: 400px){
 
@@ -1764,6 +1813,10 @@
 
       #wrapper {
         /* padding-top: 30px; */
+      }
+
+      #boxes_cont {
+        display:none;
       }
   
     }
