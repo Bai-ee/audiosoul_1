@@ -269,20 +269,89 @@
   .pointer-events-none {
     pointer-events: none;
   }
-  
-  #play-toggle.play {
-    background-color: var(--btn-play);
-    /* border-top-left-radius: var(--radius-sm);
-    border-bottom-left-radius: var(--radius-sm); */
-    background-image: var(--img-master-play);
+
+  #play-toggle.play::before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-left: 12px solid var(--btn-play);
+    clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
   }
   
-  #play-toggle.stop {
-    /* background-color: var(--btn-stop); */
+  #play-toggle.stop::before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    border-top: 8px solid var(--btn-stop);
+    border-bottom: 8px solid var(--btn-stop);
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    clip-path: polygon(0% 25%, 25% 0%, 75% 0%, 100% 25%, 100% 75%, 75% 100%, 25% 100%, 0% 75%);
+  }
+  
+  /* #play-toggle.play::after {
+    content: "";
+    display: block;
+    width: 4px;
+    height: 12px;
+    background-color: white;
+    margin: 0 0 0 16px;
+  }
+  
+  #play-toggle.stop::after {
+    content: "";
+    display: block;
+    width: 8px;
+    height: 8px;
+    background-color: white;
+    margin: 2px 0 0 10px;
+    border-radius: 50%;
+  } */
+
+  
+  
+ #play-toggle.play {
+    /* background-color: var(--btn-play);
     border-top-left-radius: var(--radius-sm);
     border-bottom-left-radius: var(--radius-sm);
-    background-image: var(--img-master-stop);
-  }
+    background-image: var(--img-master-play); */
+
+    width: 100px;
+    height: 100px;
+    border: none;
+    clip-path: polygon(25% 25%, 69.09% 48.59%, 69.09% 48.59%, 25% 75%);
+
+    position: relative;
+    /* left: 10px;
+    top: 5px; */
+    cursor: pointer;
+    display: block;
+    background-color: #576B68;
+    border-radius:20px;
+  } 
+
+#play-toggle.stop {
+    /* background-color: var(--btn-stop);
+    border-top-left-radius: var(--radius-sm);
+    border-bottom-left-radius: var(--radius-sm);
+    background-image: var(--img-master-stop); */
+
+    width: 100px;
+    height: 100px;
+    border: none;
+    clip-path: polygon(25% 25%, 75% 25%, 75% 75%, 25% 75%);
+    position: relative;
+    /* left: 10px;
+    top: 5px; */
+    cursor: pointer;
+    display: block;
+    background-color: #6B5757;
+    /* border-radius:20px; */
+  } 
   
   #download {
     background-image: var(--img-download);
@@ -311,42 +380,48 @@
   }
   
   .preview {
-    position: relative;
+    /* position: relative;
     height: 48px;
     width: 44px;
     cursor: pointer;
     border: 0;
-    border-right: 1px solid var(--border);
+    border-right: 1px solid var(--border); */
     /* background-color: var(--bg-btn-updown); */
-    background-size: contain;
+    /* background-size: contain;
     background-position: 50% 50%;
     border-bottom-left-radius: var(--radius-sm);
-    border-top-left-radius: var(--radius-sm);
+    border-top-left-radius: var(--radius-sm); */
     /* margin-left:20px; */
+
+        /* background-image: var(--img-box-stop);
+
   }
   
   .preview:hover{
-    background-color: var(--btn-hover);
+    /* background-color: var(--btn-hover); */
   }
   
   .preview.play {
-    background-image: var(--img-box-play);
-    background-color: var(--loop-iterate)
+    display: block;
+    width: 20;
+    height: 20;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-left: 12px solid var(--btn-play);
+    clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
+    background-color: #576B68;
+    /* padding:5px; */
   }
   
   .preview.stop {
-    background-image: var(--img-box-stop);
-    background-color: transparent;
-  }
-  
-  .previewDuration , #totalDuration, #progress_total, #progress_current{
-    position: relative;
-    width: 40px;
-    /* bottom: 210px; */
-    text-align: center;
-    /* left: 83px; */
-    color:black;
-    font-size:12px;
+    display: block;
+    width: 20;
+    height: 20;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-left: 12px solid var(--btn-play);
+    clip-path: polygon(25% 25%, 75% 25%, 75% 75%, 25% 75%);
+    background-color: #576B68;
   }
   
   #totalDuration {
@@ -535,6 +610,10 @@
     align-items: center;
     background-size: cover;
     background-position: top;
+    width: 100vw;
+    max-width: 440px;
+    border:20px;
+
   }
   
   p {
