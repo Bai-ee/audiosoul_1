@@ -403,25 +403,29 @@
   
   .preview.play {
     display: block;
-    width: 20;
-    height: 20;
-    border-top: 8px solid transparent;
-    border-bottom: 8px solid transparent;
-    border-left: 12px solid var(--btn-play);
-    clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
+    width: 15px;
+    height: 15px;
+    padding:15px;
+    /* border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent; */
+    /* border-left: 12px solid var(--btn-play); */
+    clip-path: polygon(25% 25%, 69.09% 48.59%, 69.09% 48.59%, 25% 75%);
     background-color: #576B68;
+    cursor: pointer;
     /* padding:5px; */
   }
   
   .preview.stop {
     display: block;
-    width: 20;
-    height: 20;
-    border-top: 8px solid transparent;
-    border-bottom: 8px solid transparent;
+    width: 15px;
+    height: 15px;
+    padding:15px;
+    /* border-top: 8px solid red;
+    border-bottom: 8px solid red; */
     border-left: 12px solid var(--btn-play);
     clip-path: polygon(25% 25%, 75% 25%, 75% 75%, 25% 75%);
     background-color: #576B68;
+    cursor: pointer;
   }
   
   #totalDuration {
@@ -811,7 +815,7 @@
     font-size: 11px; 
     line-height: 1;
     text-align:center;
-    min-width:90px;
+    min-width:40px;
     /* top: 22px; */
     /* left: 8px;   */
     /* text-shadow: 
@@ -825,19 +829,22 @@
     position: absolute;
     display: flex;
     align-items: center;
-    justify-content: center;
-    max-width: 289px;
+    /* max-width: 289px; */
     /* height: 20px; */
     position: relative;
     margin: 0px;
-    width: auto;
     height: 15px;
     transform: translate(0px, 0px);
     border-radius: var(--radius-sm-samples);
     margin-bottom: 5px;
     background-color: var(--bg-box);
     border: 1px solid var(--border);
-    padding-left: 20px;
+    width: 91%!important;
+    margin-left: 48px;
+    /* padding-left: 20px; */
+    align-content: center;
+    justify-content: space-between;
+    /* min-width: 320px; */
   }
   
   .box.isactive {
@@ -914,6 +921,7 @@
     flex-direction: column;
     align-content: center;
     justify-content: flex-start;
+    width:320px;
     /* background-color:red; */
   }
   
@@ -936,7 +944,7 @@
   
   .previewDuration, .repeat, .repeat-text, .num, #trackRepeat,#totalDuration {
     color: var(--txt-box);
-    /* color: #eee; */
+    font-size: 12px;
   }
 
   #trackRepeat{

@@ -597,8 +597,8 @@ function validateToken(viewer, objkt){
                 console.log("• Owner Not Verified: Collect to Unlock Downloads")
                 console.log("COLLECT TO DOWNLOAD")
     
-                downloadButton.style.display = 'block';
-                purchaseElement.style.display = 'none';
+                downloadButton.style.display = 'none';
+                purchaseElement.style.display = 'block';
                 
                 }
             })
