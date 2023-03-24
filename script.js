@@ -87,6 +87,8 @@ function setTogglePlayGlowAndPartsActive() {
             slider_cont.classList.remove("play")
             slider_cont.classList.add("stop")
             boxes_cont.classList.add("pointer-events-none")
+            boxes_cont.classList.add("isactiveBoxCont");
+
 
             for(var i = 0; i < parts.length; i++){
                 parts[i].ref_box.classList.add("isnotactive");
@@ -100,6 +102,7 @@ function setTogglePlayGlowAndPartsActive() {
             slider_cont.classList.remove("stop")
             slider_cont.classList.add("play")
             boxes_cont.classList.remove("pointer-events-none")
+            boxes_cont.classList.add("isactiveBoxCont");
 
             for(var i = 0; i < parts.length; i++){
                 parts[i].isactive = false;
@@ -158,6 +161,9 @@ Tone.loaded().then(function () {
     enableElements();
     loadPreset(0);
 
+    gsap.to("#cont_slider_boxes", {duration:1, autoAlpha:1, ease:"Power4.easeInOut"},0);
+
+    //here
 
 });
 
@@ -200,7 +206,7 @@ function render() {
     }, Tone.Time(totalLength()))
 
     renderingPromise.then(buffer => {
-        status.innerHTML = "No Mills"
+        status.innerHTML = "Delliver Me"
         makeDownload(buffer.get())
     });
 
@@ -288,6 +294,9 @@ playToggle.onclick = function () {
     //or 
     //use this for not showing the visualizer and playing only the master-audio
     Tone.start();
+
+
+  
     //---- END ----
 
     if (activeBufferIndex != renderedBufferIndex) {

@@ -302,9 +302,11 @@ function mainTimline() {
   tlStageBlock.from("#wrapper_cont", {duration:1, autoAlpha:0}),0.5;
   tlStageBlock.from("#wrapper", {duration:1, autoAlpha:0}),1.5;
   tlStageBlock.to("#circle", {duration:2, autoAlpha:1},3);
-  tlStageBlock.to("#header, #presets, #pre2, #boxes_cont, #cont_slider_boxes, #master_controls, #progress_cont, .marquee, #footer", {duration:3, stagger:0.35, autoAlpha:1, delay:1, ease:"Power4.easeInOut"},.5);
+  tlStageBlock.to("#header, #presets, #pre2,#boxes_cont, #master_controls, #progress_cont, .marquee, #footer", {duration:3, stagger:0.35, autoAlpha:1, delay:1, ease:"Power4.easeInOut"},.5);
   tlStageBlock.to("#wrapper", {duration:0.25, height:"100%", width:"100%", ease:"Power1.easeOut"},0);
   tlStageBlock.to('.loader, #wrapper_bg p', {duration:0.25,opacity: 0},0);
+  // tlStageBlock.to("#cont_slider_boxes", {duration:3, stagger:0.35, autoAlpha:0.0, delay:1, ease:"Power4.easeInOut"},.5);
+
 
   document.getElementById('wrapper_bg').style.display = "none";
   nudge = null;
@@ -434,7 +436,7 @@ function updateSliderProgress() {
 
 function setSliderVisibility(){
   if(slider_bg.offsetHeight >= boxes.offsetHeight){
-    slider_cont.classList.add("hide")
+    slider_cont.classList.add("ra")
   }else{
     slider_cont.classList.remove("hide")
   }

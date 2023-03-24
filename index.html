@@ -79,6 +79,11 @@ _\/\\\///////////____/\\\/////////\\\_\///////\\\/////___________________/\\\///
   <div id="stageBlock"></div>
   <div id="content">
   <div id="wrapper_cont">   
+    <!-- <div id="wrapper_front">
+      <div id="content_front" class="cardBack">
+
+      </div>
+    </div> -->
     <div id="wrapper_back">
       <div id="content_back" class="cardBack">
         <div id="content_back_img" onclick="toggle()"></div>
@@ -129,7 +134,6 @@ _\/\\\///////////____/\\\/////////\\\_\///////\\\/////___________________/\\\///
           </div>
         </div>
       </div>
-
       <div id="cont_slider_boxes" style="position: relative;">
         <div id="slider_cont">
           <div id="slider_bg"></div>
@@ -151,13 +155,14 @@ _\/\\\///////////____/\\\/////////\\\_\///////\\\/////___________________/\\\///
             <div id="glow-hover-play" class="glow-hover">
               <button id="play-toggle" class="play" disabled></button>
             </div>
+            <div id="status">Loading...</div>
+            <div id="totalDuration"></div>
             <div id="glow-hover-download" class="glow-hover">
               <button style="display:none" id="download"></button>
               <div id="purchase"></div>
             </div>
           </div>
-          <div id="status">Loading...</div>
-          <div id="totalDuration"></div>
+
           <div class="repeat-container">
             <div id="trackRepeat" style="" class="repeat master_repeat">1</div>
             <p  style="color:#576B68;" class="repeat-text master_repeat">Loop</p>
