@@ -43,6 +43,9 @@ purchaseElement.addEventListener('click', function(){
    
 
 document.addEventListener("DOMContentLoaded", () => {
+
+    document.getElementById("statusScript").innerHTML = "EditTrax Player UI Loaded";
+
     presetElements = document.querySelectorAll(".preset");
     elements = document.querySelectorAll(".loopinteraction");
 
@@ -75,7 +78,8 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById('masterUp').addEventListener("click", loopMasterUp);
     document.getElementById('masterDown').addEventListener("click", loopMasterDown);
     // console.log("init script");
-});
+
+
 function setTogglePlayGlowAndPartsActive() {
     var elem = document.querySelector("#play-toggle");
 
@@ -161,7 +165,13 @@ Tone.loaded().then(function () {
     enableElements();
     loadPreset(0);
 
-    gsap.to("#cont_slider_boxes", {duration:1, autoAlpha:1, ease:"Power4.easeInOut"},0);
+    document.getElementById("statusTone").innerHTML = "High Fidelity Audio Loaded";
+
+    gsap.to("#cont_slider_boxes", {duration:2, autoAlpha:1, delay:2, ease:"Power4.easeInOut"});
+    gsap.to("#flipMe", {duration:2, autoAlpha:0, delay:0, ease:"Power4.easeInOut"});
+
+
+    
 
     //here
 
@@ -616,3 +626,5 @@ function validateToken(viewer, objkt){
     
     
     validateToken(viewer, objkt)
+
+});

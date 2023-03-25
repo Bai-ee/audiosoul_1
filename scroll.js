@@ -45,7 +45,30 @@ let tween = gsap.to(".marquee__part", {xPercent: -100, repeat: -1, duration: 40,
 var hotSpot = document.getElementById("flipMe");
 let nudge = true;
 
-document.addEventListener("DOMContentLoaded", () => {
+
+
+window.onload = function() {
+  var link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.href = 'style.css';
+  link.onload = function() {
+
+
+    document.getElementById("statusScroll").innerHTML = "Visual Assets Loaded";
+
+
+    startTheScroll();
+    console.log("LOADED")
+    // your code to display assets goes here
+  };
+
+  document.head.appendChild(link);
+};
+
+function startTheScroll() {
+
+// document.addEventListener("DOMContentLoaded", () => {
+
   document.getElementById("preview").addEventListener("click", mouseClickPlayer);
 
   window.addEventListener("scroll", function(){
@@ -69,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   boxes.onmousewheel = () =>{return false;}
 
-});
+// });
 
 function initMediaPlayer(){
 
@@ -291,7 +314,7 @@ function initTimeline(){
   gsap.set("#content_back_img_direx", {autoAlpha:0});
   gsap.set("#stageBlock", {autoAlpha:1}); 
   gsap.set("#preview", {autoAlpha:0},0)
-  gsap.set('.loader, #wrapper_bg p, #cont_slider_boxes', {opacity: 0}); 
+  gsap.set('.loader, #wrapper_bg p, #cont_slider_boxes', {opacity: 1}); 
 
 }
 var tlStageBlock
@@ -468,6 +491,8 @@ window.addEventListener('resize', () => {
     initialSliderPositionAndBounds();
   })
 })
+
+}
 
 
 

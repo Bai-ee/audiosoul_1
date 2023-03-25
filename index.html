@@ -73,14 +73,91 @@ _\/\\\///////////____/\\\/////////\\\_\///////\\\/////___________________/\\\///
 </head>
 <body id="body">
 
-  <button id="flipMe" onclick="toggle()"></button>
+  <div  id="flipMe" style="display: flex;position: fixed;justify-content: center;align-items: center;width: 300px;height: 250px;opacity: 1;visibility: inherit;max-width: 90vw;max-height: 90vh;align-content: center;flex-direction: column;background-color: black;border-radius: 30px;">
+      <div id="statusScroll" style="color:white;">Loading Visual Assets</div>
+      
+      <div id="statusScript" style="color:white;">Loading EditTrax Player</div>
+        
+      <div id="statusTone" style="color:white;">Loading High Fidelity Audio</div>
+
+        <button id="flipPlayer" style="display:none;" onclick="toggle()"></button>
+    
+    </div>
+  </div>
+
+
+
+
+
   <button id="flipMe_return_direx" onclick="toggle()"></button>
   <div id="circle" loop=infinite ></div>
   <div id="stageBlock"></div>
   <div id="content">
+
   <div id="wrapper_cont">   
+
+    <link href='https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+
+    <div class="wdt-loading-screen">
+    
+      <div class="wdt-loading-phrases">
+    
+        <div class="wdt-loading-phrase-category" data-category="default">
+          <div class="wdt-loading-phrase">Doing great things...</div>
+          <div class="wdt-loading-phrase">Writing project descriptions...</div>
+          <div class="wdt-loading-phrase">Feeding the unicorns...</div>
+          <div class="wdt-loading-phrase">Collecting jobs for you...</div>
+          <div class="wdt-loading-phrase">Calculating scores...</div>
+          <div class="wdt-loading-phrase">Finding best talented people...</div>
+          <div class="wdt-loading-phrase">Fixing responsive issues...</div>
+          <div class="wdt-loading-phrase">Painting office walls...</div>
+          <div class="wdt-loading-phrase">Coffee break...</div>
+          <div class="wdt-loading-phrase">Feeding cats...</div>
+          <div class="wdt-loading-phrase">Health check...</div>
+          <div class="wdt-loading-phrase">Storage check...</div>
+        </div>
+    
+        <div class="wdt-loading-phrase-category" data-category="profile">
+          <div class="wdt-loading-phrase">Getting avatar...</div>
+          <div class="wdt-loading-phrase">Collecting project memberships...</div>
+          <div class="wdt-loading-phrase">Getting dom together...</div>
+          <div class="wdt-loading-phrase">Getting followers...</div>
+          <div class="wdt-loading-phrase">Calculating best skills...</div>
+          <div class="wdt-loading-phrase">Getting feed...</div>
+          <div class="wdt-loading-phrase">Writing title...</div>
+        </div>
+    
+      </div>
+    
+    </div>
+
+
+
+
+
+
+
+
+
+
+
     <!-- <div id="wrapper_front">
       <div id="content_front" class="cardBack">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
 
       </div>
     </div> -->
@@ -140,6 +217,18 @@ _\/\\\///////////____/\\\/////////\\\_\///////\\\/////___________________/\\\///
           <div id="slider"></div>
         </div>
         <div id="boxes_cont" style="">
+
+
+         
+
+
+
+          
+
+
+
+
+
           <div class="boxes">
           </div>
         </div>
