@@ -42,7 +42,7 @@ let tween = gsap.to(".marquee__part", {xPercent: -100, repeat: -1, duration: 40,
 var hotSpot = document.getElementById("flipMe");
 let nudge = true;
 
-function startTheScroll() {
+// function startTheScroll() {
 
 const svgElement = document.getElementById('statusScriptIcon');
 const newSvgContent = `
@@ -72,6 +72,8 @@ window.addEventListener("resize", resize);
 
 initMediaPlayer();
 initTimeline();
+
+mainTimline();
 
 boxes.onmousewheel = () =>{return false;}
 
@@ -297,6 +299,26 @@ function initTimeline(){
   gsap.set('.loader, #wrapper_bg p, #cont_slider_boxes', {opacity: 0}); 
 }
 
+var tlStageBlock
+function mainTimline() {
+  tlStageBlock = gsap.timeline({delay:0});
+  tlStageBlock.timeScale( 2 ); 
+  tlStageBlock.to("#stageBlock", {duration:2, autoAlpha:0},0);
+  tlStageBlock.from("#wrapper", {duration:1, autoAlpha:0}),0.5;
+  tlStageBlock.to("#circle", {duration:2, autoAlpha:1},2.5);
+  tlStageBlock.to("#header, #presets, #pre2, #boxes_cont, #cont_slider_boxes, #master_controls, #progress_cont, .marquee, #footer", {duration:3, stagger:0.35, autoAlpha:1, delay:1, ease:"Power4.easeInOut"},.5);
+  tlStageBlock.to("#wrapper", {duration:0.25, height:"100%", width:"100%", ease:"Power1.easeOut"},0);
+  tlStageBlock.to('.loader, #wrapper_bg p', {duration:0.25,opacity: 0},0);
+
+  document.getElementById('wrapper_bg').style.display = "none";
+  nudge = null;
+  gsap.to("#slider_cont",{duration:0.25, autoAlpha:1, delay:0, oncomplete: () => {
+    setSliderVisibility();
+    initialSliderPositionAndBounds();
+  }});
+  tlStageBlock.addLabel("myLabel", ">");
+}
+
 gsap.to("#slider_cont",{duration:0.25, autoAlpha:1, delay:0, oncomplete: () => {
   setSliderVisibility();
   initialSliderPositionAndBounds();
@@ -454,45 +476,45 @@ window.addEventListener('resize', () => {
   })
 })
 
-}
+// }
 
-window.onload = function() {
+// window.onload = function() {
   
-  var link = document.createElement('link');
-  link.rel = 'stylesheet';
-  link.href = 'style.css';
-  link.onload = function() {
+//   var link = document.createElement('link');
+//   link.rel = 'stylesheet';
+//   link.href = 'style.css';
+//   link.onload = function() {
 
-    const svgElement = document.getElementById('statusScrollIcon');
-    const newSvgContent = `
-    <circle cx="20" cy="20" r="18" stroke="#CEC6B3" stroke-width="4" fill="#576B68" />
-    <path d="M13 20 l5 5 l10 -10" stroke="#CEC6B3" stroke-width="4" fill="none" />`;
+//     const svgElement = document.getElementById('statusScrollIcon');
+//     const newSvgContent = `
+//     <circle cx="20" cy="20" r="18" stroke="#CEC6B3" stroke-width="4" fill="#576B68" />
+//     <path d="M13 20 l5 5 l10 -10" stroke="#CEC6B3" stroke-width="4" fill="none" />`;
 
-    document.getElementById("statusScroll").innerHTML = "Player Code Loaded";
-    document.getElementById('statusScroll').style.color = '#576B68';
-    svgElement.innerHTML = newSvgContent;
+//     document.getElementById("statusScroll").innerHTML = "Player Code Loaded";
+//     document.getElementById('statusScroll').style.color = '#576B68';
+//     svgElement.innerHTML = newSvgContent;
 
-    startTheScroll();
+//     startTheScroll();
 
-  };
+//   };
 
-  document.head.appendChild(link);
+//   document.head.appendChild(link);
   
-};
+// };
 
-function callScriptFile(){
+// function callScriptFile(){
 
-  function loadExternalScript() {
-    var script = document.createElement('script');
-    script.src = 'script.js';
-    document.head.appendChild(script);
-  }
+//   function loadExternalScript() {
+//     var script = document.createElement('script');
+//     script.src = 'script.js';
+//     document.head.appendChild(script);
+//   }
 
-  loadExternalScript();
+//   loadExternalScript();
 
-}
+// }
 
-callScriptFile();
+// callScriptFile();
 
 
 
