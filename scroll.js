@@ -42,7 +42,7 @@ let tween = gsap.to(".marquee__part", {xPercent: -100, repeat: -1, duration: 40,
 var hotSpot = document.getElementById("flipMe");
 let nudge = true;
 
-// function startTheScroll() {
+function startTheShow() {
 
 const svgElement = document.getElementById('statusScriptIcon');
 const newSvgContent = `
@@ -55,7 +55,7 @@ svgElement.innerHTML = newSvgContent;
 
 document.getElementById("preview").addEventListener("click", mouseClickPlayer);
 
-window.addEventListener("scroll", function(){
+  window.addEventListener("scroll", function(){
   if ( window.pageYOffset > currentScroll ) {
     isScrollingDown = true;
   } else {
@@ -72,8 +72,9 @@ window.addEventListener("resize", resize);
 
 initMediaPlayer();
 initTimeline();
-
 mainTimline();
+
+}
 
 boxes.onmousewheel = () =>{return false;}
 
@@ -297,6 +298,9 @@ function initTimeline(){
   gsap.set("#stageBlock", {autoAlpha:1}); 
   gsap.set("#preview", {autoAlpha:0},0)
   gsap.set('.loader, #wrapper_bg p, #cont_slider_boxes', {opacity: 0}); 
+  // gsap.set('#cont_slider_boxes', {height:0}); 
+  // gsap.set('#slider_cont', {display:'none'}); 
+  // gsap.set('#master_controls', {display:'none'}); 
 }
 
 var tlStageBlock
@@ -393,6 +397,8 @@ Draggable.create(proxy, {
   }
 });
 
+
+
 function getCssVariableWithoutPixel(name) {
   var val = getComputedStyle(document.documentElement).getPropertyValue(name);
   if(val.includes('px')) val = val.replace('px')
@@ -476,45 +482,45 @@ window.addEventListener('resize', () => {
   })
 })
 
-// }
 
-// window.onload = function() {
+
+window.onload = function() {
   
-//   var link = document.createElement('link');
-//   link.rel = 'stylesheet';
-//   link.href = 'style.css';
-//   link.onload = function() {
+  var link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.href = 'style.css';
+  link.onload = function() {
 
-//     const svgElement = document.getElementById('statusScrollIcon');
-//     const newSvgContent = `
-//     <circle cx="20" cy="20" r="18" stroke="#CEC6B3" stroke-width="4" fill="#576B68" />
-//     <path d="M13 20 l5 5 l10 -10" stroke="#CEC6B3" stroke-width="4" fill="none" />`;
+    const svgElement = document.getElementById('statusScrollIcon');
+    const newSvgContent = `
+    <circle cx="20" cy="20" r="18" stroke="#CEC6B3" stroke-width="4" fill="#576B68" />
+    <path d="M13 20 l5 5 l10 -10" stroke="#CEC6B3" stroke-width="4" fill="none" />`;
 
-//     document.getElementById("statusScroll").innerHTML = "Player Code Loaded";
-//     document.getElementById('statusScroll').style.color = '#576B68';
-//     svgElement.innerHTML = newSvgContent;
+    document.getElementById("statusScroll").innerHTML = "Player Code Loaded";
+    document.getElementById('statusScroll').style.color = '#576B68';
+    svgElement.innerHTML = newSvgContent;
 
-//     startTheScroll();
+    startTheScroll();
 
-//   };
+  };
 
-//   document.head.appendChild(link);
+  document.head.appendChild(link);
   
-// };
+};
 
-// function callScriptFile(){
+function callScriptFile(){
 
-//   function loadExternalScript() {
-//     var script = document.createElement('script');
-//     script.src = 'script.js';
-//     document.head.appendChild(script);
-//   }
+  function loadExternalScript() {
+    var script = document.createElement('script');
+    script.src = 'script.js';
+    document.head.appendChild(script);
+  }
 
-//   loadExternalScript();
+  loadExternalScript();
 
-// }
+}
 
-// callScriptFile();
+callScriptFile();
 
 
 

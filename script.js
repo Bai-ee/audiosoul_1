@@ -283,6 +283,8 @@ function previewProgress() {
 
 
 playToggle.onclick = function () {
+
+    console.log("clicked")
     //---- START ----
     //when using the visualizer remove this comment and use pts.js play for the audio
     //startVisualizer();
