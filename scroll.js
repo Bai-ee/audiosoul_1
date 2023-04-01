@@ -508,19 +508,19 @@ window.onload = function() {
   
 };
 
-function callScriptFile(){
+// function callScriptFile(){
 
-  function loadExternalScript() {
-    var script = document.createElement('script');
-    script.src = 'script.js';
-    document.head.appendChild(script);
-  }
+//   function loadExternalScript() {
+//     var script = document.createElement('script');
+//     script.src = 'script.js';
+//     document.head.appendChild(script);
+//   }
 
-  loadExternalScript();
+//   loadExternalScript();
 
-}
+// }
 
-callScriptFile();
+// callScriptFile();
 
 
 
