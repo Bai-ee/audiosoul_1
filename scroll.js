@@ -1,4 +1,5 @@
 gsap.registerPlugin(CSSRulePlugin, Draggable);
+// patch all methods for scroll polyfill (Safari)
 seamless.polyfill();
 
 const viewport = document.querySelector(".viewport");
@@ -14,6 +15,8 @@ const imgHeight = boxHeight - 14;
 let viewWidth = innerWidth;
 const wrapWidth = numBoxes * boxWidth;
 const wrapVal = gsap.utils.wrap(0, wrapWidth);
+
+
 const endRot = 180;
 const startAnim = gsap.to("#circle", {
 
@@ -42,38 +45,35 @@ let tween = gsap.to(".marquee__part", {xPercent: -100, repeat: -1, duration: 40,
 var hotSpot = document.getElementById("flipMe");
 let nudge = true;
 
-function startTheScroll() {
 
-const svgElement = document.getElementById('statusScriptIcon');
-const newSvgContent = `
-<circle cx="20" cy="20" r="18" stroke="#CEC6B3" stroke-width="4" fill="#576B68" />
-<path d="M13 20 l5 5 l10 -10" stroke="#CEC6B3" stroke-width="4" fill="none" />`;
 
-document.getElementById("statusScript").innerHTML = "Visual Assets Loaded";
-document.getElementById('statusScript').style.color = '#576B68';
-svgElement.innerHTML = newSvgContent;
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("preview").addEventListener("click", mouseClickPlayer);
 
-document.getElementById("preview").addEventListener("click", mouseClickPlayer);
-
-window.addEventListener("scroll", function(){
-  if ( window.pageYOffset > currentScroll ) {
-    isScrollingDown = true;
-  } else {
-    isScrollingDown = false;
-  }
-  
-  gsap.to(tween, {
-    timeScale: isScrollingDown ? 1 : -1
+  window.addEventListener("scroll", function(){
+    if ( window.pageYOffset > currentScroll ) {
+      isScrollingDown = true;
+    } else {
+      isScrollingDown = false;
+    }
+    
+    gsap.to(tween, {
+      timeScale: isScrollingDown ? 1 : -1
+    });
+    currentScroll = window.pageYOffset
   });
-  currentScroll = window.pageYOffset
+
+  window.addEventListener("resize", resize);
+
+  initMediaPlayer();
+  initTimeline();
+  // mainTimline();
+  setSliderVisibility();
+  initialSliderPositionAndBounds();
+
+  boxes.onmousewheel = () =>{return false;}
+
 });
-
-window.addEventListener("resize", resize);
-
-initMediaPlayer();
-initTimeline();
-
-boxes.onmousewheel = () =>{return false;}
 
 function initMediaPlayer(){
 
@@ -262,6 +262,7 @@ function initMediaPlayer(){
     box.appendChild(progress);
     box.appendChild(loopContainer);
     box.appendChild(loopInteractions);
+
     boxes.appendChild(box);
 
     gsap.set(box, { x: i * boxWidth, width: boxWidth, height: boxHeight });
@@ -290,17 +291,37 @@ function initTimeline(){
   gsap.set(".marquee__inner", {xPercent: -50});
   gsap.set("#wrapper", {width:300, height:250, autoAlpha:1});
   gsap.set("#wrapper_bg", {autoAlpha:0});
-  gsap.set("#flipMe_return_direx", {autoAlpha:0});
+  // gsap.set("#flipMe_return_direx", {autoAlpha:0});
   gsap.set("#content_back_img_direx", {autoAlpha:0});
   gsap.set("#stageBlock", {autoAlpha:1}); 
   gsap.set("#preview", {autoAlpha:0},0)
   gsap.set('.loader, #wrapper_bg p, #cont_slider_boxes', {opacity: 0}); 
 }
+// var tlStageBlock
+// function mainTimline() {
+//   tlStageBlock = gsap.timeline({delay:0});
+//   tlStageBlock.timeScale( 2 ); 
+//   tlStageBlock.to('#flipMe', {duration:0.25,opacity: 0.},0);
+//   tlStageBlock.to("#stageBlock", {duration:2, autoAlpha:1},0);
+//   tlStageBlock.from("#wrapper_cont", {duration:1, autoAlpha:0}),0.5;
+//   tlStageBlock.from("#wrapper", {duration:1, autoAlpha:0}),1.5;
+//   tlStageBlock.to("#circle", {duration:2, autoAlpha:1},3);
+//   tlStageBlock.to("#header, #presets, #pre2,#boxes_cont, #master_controls, #progress_cont, .marquee, #footer", {duration:3, stagger:0.35, autoAlpha:1, delay:1, ease:"Power4.easeInOut"},.5);
+//   tlStageBlock.to("#wrapper", {duration:0.25, height:"100%", width:"100%", ease:"Power1.easeOut"},0);
+//   tlStageBlock.to('.loader, #wrapper_bg p', {duration:0.25,opacity: 0},0);
+//   // tlStageBlock.to("#cont_slider_boxes", {duration:3, stagger:0.35, autoAlpha:0.0, delay:1, ease:"Power4.easeInOut"},.5);
 
-gsap.to("#slider_cont",{duration:0.25, autoAlpha:1, delay:0, oncomplete: () => {
-  setSliderVisibility();
-  initialSliderPositionAndBounds();
-}});
+  
+
+
+//   document.getElementById('wrapper_bg').style.display = "none";
+//   nudge = null;
+//   gsap.to("#slider_cont",{duration:0.25, autoAlpha:1, delay:0, oncomplete: () => {
+//     setSliderVisibility();
+//     initialSliderPositionAndBounds();
+//   }});
+//   tlStageBlock.addLabel("myLabel", ">");
+// }
 
 function help(){ 
   gsap.to(".box", {duration:0.5,autoAlpha:0})
@@ -454,45 +475,6 @@ window.addEventListener('resize', () => {
   })
 })
 
-}
-
-window.onload = function() {
-  
-  var link = document.createElement('link');
-  link.rel = 'stylesheet';
-  link.href = 'style.css';
-  link.onload = function() {
-
-    const svgElement = document.getElementById('statusScrollIcon');
-    const newSvgContent = `
-    <circle cx="20" cy="20" r="18" stroke="#CEC6B3" stroke-width="4" fill="#576B68" />
-    <path d="M13 20 l5 5 l10 -10" stroke="#CEC6B3" stroke-width="4" fill="none" />`;
-
-    document.getElementById("statusScroll").innerHTML = "Player Code Loaded";
-    document.getElementById('statusScroll').style.color = '#576B68';
-    svgElement.innerHTML = newSvgContent;
-
-    startTheScroll();
-
-  };
-
-  document.head.appendChild(link);
-  
-};
-
-// function callScriptFile(){
-
-//   function loadExternalScript() {
-//     var script = document.createElement('script');
-//     script.src = 'script.js';
-//     document.head.appendChild(script);
-//   }
-
-//   loadExternalScript();
-
-// }
-
-// callScriptFile();
 
 
 

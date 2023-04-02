@@ -1,33 +1,49 @@
 
-const creator = new URLSearchParams(window.location.search).get('creator');
-const viewer = new URLSearchParams(window.location.search).get('viewer');
+const creator = new URLSearchParams(window.location.search).get('creator')
+// NOTE: if the user is viewing the page on hicetnunc while unsynced,
+// the viewer variable will return a string of value "false" (NOT a boolean)
+const viewer = new URLSearchParams(window.location.search).get('viewer')
 const owner = new URLSearchParams(window.location.search).get("owner");
-const objkt = new URLSearchParams(window.location.search).get('objkt');
-
+// The ID of the OBJKT is also passed via the URL parameters
+const objkt = new URLSearchParams(window.location.search).get('objkt')
 var isOwned = false;
 let playToggle = document.querySelector("#play-toggle");
 let downloadButton = document.querySelector("#download");
 let purchaseElement = document.querySelector("#purchase");
 let playElement = document.querySelector("#play-toggle");
+
 let status = document.querySelector("#status");
 let slider_cont = document.querySelector("#slider_cont");
+
 let presetElements = [];
 let elements = [];
 
 purchaseElement.addEventListener('click', function(){
     
     gsap.fromTo("#body", {backgroundColor:"red", ease: "Power1.easeOut"}, {backgroundColor:"black"});
+    
+    });
 
-});
+    playElement.addEventListener('click', function(){
 
-playElement.addEventListener('click', function(){
 
-    if (playElement.className == "stop") {
-        gsap.fromTo("#body", {backgroundColor:"red", ease: "Power1.easeOut"}, {backgroundColor:"black"});
-    } else {
-        gsap.fromTo("#body", {backgroundColor:"green", ease: "Power1.easeOut"}, {backgroundColor:"black"});        
-    }
-});
+        if (playElement.className == "stop") {
+
+            gsap.fromTo("#body", {backgroundColor:"red", ease: "Power1.easeOut"}, {backgroundColor:"black"});
+        }
+        else {
+
+        gsap.fromTo("#body", {backgroundColor:"green", ease: "Power1.easeOut"}, {backgroundColor:"black"});
+        
+        }
+    });
+
+
+
+   
+
+document.addEventListener("DOMContentLoaded", () => {
+
 
     presetElements = document.querySelectorAll(".preset");
     elements = document.querySelectorAll(".loopinteraction");
@@ -38,9 +54,11 @@ playElement.addEventListener('click', function(){
                 presetElements[i].classList.remove('active');
             }
             this.classList.add('active');
+
             Tone.Transport.stop();
             loadPreset(this.dataset['value']);
             updatePlayClass();
+
             setTogglePlayGlowAndPartsActive();
         });
     }
@@ -51,12 +69,16 @@ playElement.addEventListener('click', function(){
             updateDurations();
             schedulePlayers();
             updatePlayClass();
+
             setTogglePlayGlowAndPartsActive();
         })
     }
 
     document.getElementById('masterUp').addEventListener("click", loopMasterUp);
     document.getElementById('masterDown').addEventListener("click", loopMasterDown);
+    // console.log("init script");
+});
+
 
 function setTogglePlayGlowAndPartsActive() {
     var elem = document.querySelector("#play-toggle");
@@ -69,6 +91,8 @@ function setTogglePlayGlowAndPartsActive() {
             slider_cont.classList.remove("play")
             slider_cont.classList.add("stop")
             boxes_cont.classList.add("pointer-events-none")
+            boxes_cont.classList.add("isactiveBoxCont");
+
 
             for(var i = 0; i < parts.length; i++){
                 parts[i].ref_box.classList.add("isnotactive");
@@ -82,6 +106,7 @@ function setTogglePlayGlowAndPartsActive() {
             slider_cont.classList.remove("stop")
             slider_cont.classList.add("play")
             boxes_cont.classList.remove("pointer-events-none")
+            boxes_cont.classList.add("isactiveBoxCont");
 
             for(var i = 0; i < parts.length; i++){
                 parts[i].isactive = false;
@@ -102,14 +127,12 @@ let trackRepeatElement = document.getElementById("trackRepeat");
 var trackRepeat = Number.parseInt(trackRepeatElement.innerHTML);
 
 function loopMasterUp() {
-    console.log("masterUp Loop")
     if(trackRepeat < 9){
         trackRepeat++;
         trackRepeatElement.innerHTML = trackRepeat;
         changeMasterLoop();
     }
 }
-
 function loopMasterDown() {
     if(trackRepeat > 0){
         trackRepeat--;
@@ -123,24 +146,98 @@ function changeMasterLoop(){
     updateDurations();
     schedulePlayers();
     updatePlayClass();
+
     setTogglePlayGlowAndPartsActive();
 }
 
 const player = new Tone.Player().toDestination();
 player.loop = true;
 
+
 const buffers = parts.map(part => new Tone.Buffer({ url: trackDir + part.file }));
 
 var activeBufferIndex = -1;
 var renderedBufferIndex = 99;
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Tone.loaded().then(function () {
+
+    // gsap.set('.repeat-container, .repeatContainer', {visibility:"hidden"}); 
+
+
+    const svgElement1 = document.getElementById('statusScrollIcon');
+    const newSvgContent1 = `
+    <circle cx="20" cy="20" r="18" stroke="#CEC6B3" stroke-width="4" fill="#576B68" />
+    <path d="M13 20 l5 5 l10 -10" stroke="#CEC6B3" stroke-width="4" fill="none" />`;
+
+    const svgElement2 = document.getElementById('statusScriptIcon');
+    const newSvgContent2 = `
+    <circle cx="20" cy="20" r="18" stroke="#CEC6B3" stroke-width="4" fill="#576B68" />
+    <path d="M13 20 l5 5 l10 -10" stroke="#CEC6B3" stroke-width="4" fill="none" />`;
+
+    const svgElement3 = document.getElementById('statusAudioIcon');
+    const newSvgContent3 = `
+    <circle cx="20" cy="20" r="18" stroke="#CEC6B3" stroke-width="4" fill="#576B68" />
+    <path d="M13 20 l5 5 l10 -10" stroke="#CEC6B3" stroke-width="4" fill="none" />`;
+
+    document.getElementById("statusScroll").innerHTML = "Player Code Loaded";
+    document.getElementById('statusScroll').style.color = '#576B68';
+    svgElement1.innerHTML = newSvgContent1;
+
+    document.getElementById("statusScript").innerHTML = "Visual Assets Loaded";
+    document.getElementById('statusScript').style.color = '#576B68';
+    svgElement2.innerHTML = newSvgContent2;
+
+    document.getElementById("statusAudio").innerHTML = "WAV Files Loaded";
+    document.getElementById('statusAudio').style.color = '#576B68';
+    svgElement3.innerHTML = newSvgContent3;
+
+
+    status.innerHTML = "Master Track"
+    playToggle.disabled = false;
+    enableElements();
+    loadPreset(0);
+
+    gsap.to('#flipMe', {duration:0.2,opacity:0, delay:1.5, onComplete: () => {
+        setSliderVisibility();
+        initialSliderPositionAndBounds();
+        mainTimline();
+      }});
+
+    gsap.to("#cont_slider_boxes", {duration:1, autoAlpha:1, ease:"Power4.easeInOut"},0);
+    // gsap.to("#cont_slider_boxes", {duration:1, autoAlpha:1, ease:"Power4.easeInOut"},0);
+
+    //here
+
+
 var tlStageBlock
 function mainTimline() {
   tlStageBlock = gsap.timeline({delay:0});
-  tlStageBlock.timeScale( 2 ); 
-  tlStageBlock.to("#stageBlock", {duration:1, autoAlpha:0},0);
-  tlStageBlock.to("#flipMe_return_direx", {duration:3, delay:2, autoAlpha:1, ease:"Power4.easeInOut"});
-  tlStageBlock.from("#wrapper_cont", {duration:1, autoAlpha:0},"-=1");
+  tlStageBlock.timeScale( 2 );
+  tlStageBlock.set("#stageBlock", {zIndex:1},0);
+  tlStageBlock.to("#stageBlock", {duration:1, autoAlpha:0.8},0);
+//   tlStageBlock.to("#flipMe_return_direx", {duration:3, delay:0, autoAlpha:1, ease:"Power4.easeInOut"});
+  tlStageBlock.from("#wrapper_cont", {duration:1,opacity:0},"-=2");
   tlStageBlock.from("#wrapper", {duration:1, autoAlpha:0});
   tlStageBlock.to("#header, #presets, #pre2,#boxes_cont, #master_controls, #progress_cont, .marquee, #footer", {duration:3, stagger:0.35, autoAlpha:1, delay:1, ease:"Power4.easeInOut"},.5);
   tlStageBlock.to("#wrapper", {duration:0.25, height:"100%", width:"100%", ease:"Power1.easeOut"},0);
@@ -149,8 +246,8 @@ function mainTimline() {
   document.getElementById('wrapper_bg').style.display = "none";
   nudge = null;
   gsap.to("#slider_cont",{duration:0.25, autoAlpha:1, delay:0, oncomplete: () => {
-    // setSliderVisibility();
-    // initialSliderPositionAndBounds();
+    setSliderVisibility();
+    initialSliderPositionAndBounds();
   }});
   tlStageBlock.addLabel("myLabel", ">");
 }
@@ -160,38 +257,11 @@ function readyCheck(){
     mainTimline();
 }
 
-//TONE LOADED
-Tone.loaded().then(function () {
 
-    status.innerHTML = "MASTER EDIT"
-    playToggle.disabled = false;
-    enableElements();
-    loadPreset(0);
 
-    const svgElement = document.getElementById('statusAudioIcon');
-    const newSvgContent = `
-    <circle cx="20" cy="20" r="18" stroke="#CEC6B3" stroke-width="4" fill="#576B68" />
-    <path d="M13 20 l5 5 l10 -10" stroke="#CEC6B3" stroke-width="4" fill="none" />`;
 
-    document.getElementById("statusAudio").innerHTML = "WAV Files Loaded";
-    document.getElementById('statusAudio').style.color = '#576B68';
-    svgElement.innerHTML = newSvgContent;
 
-    var button = document.getElementById('confetti-button');
-    var container = document.getElementById('confetti-container');
 
-    gsap.to("#flipMe", {duration:1, autoAlpha:0, delay:2, ease:"Power4.easeInOut", oncomplete: () => {readyCheck();}});
-    gsap.to("#cont_slider_boxes", {duration:2, autoAlpha:1, delay:3, ease:"Power4.easeInOut"});
-
-    // gsap.to("#flipMe", {duration:4, autoAlpha:0, delay:4, oncomplete: () => {mainTimline();}});
-
-    const errorTitle = document.getElementById('statusTitle');
-    const errorInformation = document.getElementById('statusInformation');
-    errorTitle.innerHTML = `READY!`;        
-    // document.getElementById('statusTitle').style.color = '#7E1E20';
-    errorInformation.innerHTML = `Player Ready`;
-    // document.getElementById('statusInformation').style.color = '#7E1E20';
-    
 
 });
 
@@ -202,23 +272,6 @@ function loadPreset(index) {
         parts[i].refelem.innerHTML = parts[i].loop;
     }
     presetLoaded();
-}
-
-// loadPreset();
-
-try {
-
-} catch(error) {
-
-    // console.log( ${error.message})
-    console.log(`An error occurred: ${error.message}`)
-    const errorTitle = document.getElementById('statusTitle');
-    const errorInformation = document.getElementById('statusInformation');
-    errorTitle.innerHTML = `REFRESH PAGE`;        
-    document.getElementById('statusTitle').style.color = '#7E1E20';
-    errorInformation.innerHTML = `An error occurred: ${error.message}`;
-    document.getElementById('statusInformation').style.color = '#7E1E20';
-
 }
 
 async function presetLoaded() {
@@ -251,7 +304,7 @@ function render() {
     }, Tone.Time(totalLength()))
 
     renderingPromise.then(buffer => {
-        status.innerHTML = "Master Track"
+        status.innerHTML = "Delliver Me"
         makeDownload(buffer.get())
     });
 
@@ -260,6 +313,7 @@ function render() {
         downloadLink.click();
     });
 }
+
 
 Tone.Transport.bpm.value = bpm;
 
@@ -329,9 +383,19 @@ function previewProgress() {
     return (Tone.now() - playerStartTime) % player.buffer.duration / player.buffer.duration;
 }
 
-playToggle.onclick = function () {
 
+
+playToggle.onclick = function () {
+    //---- START ----
+    //when using the visualizer remove this comment and use pts.js play for the audio
+    //startVisualizer();
+    //or 
+    //use this for not showing the visualizer and playing only the master-audio
     Tone.start();
+
+
+  
+    //---- END ----
 
     if (activeBufferIndex != renderedBufferIndex) {
         activeBufferIndex = renderedBufferIndex;
@@ -456,44 +520,103 @@ function stopPreview() {
     // console.log("preview toggle disabled");
 }
 
+
+let testBoolEdit = true;
+let showDaw = false;
+
+function expand() {
+
+
+    var delay = 0.25;
+
+    if ((testBoolEdit == true) && (showDaw == false)) {
+
+      console.log("IF")
+
+      let expandButtonText = document.getElementById("master_controls_expand");
+
+      expandButtonText.innerHTML = "COLLAPSE EDITOR";
+      
+      
+      gsap.to("#cont_slider_boxes", {duration:0.25, height:"28vh", ease: "Power3.easeOut"}); 
+    
+      // gsap.to("#slider_cont", {duration:0.25, display:"block", ease:"Power3.easeOut"}); 
+  
+      gsap.to("#wrapper_cont", {duration:0.25, height:"auto", ease: "Power3.easeOut"}); 
+      showDaw = true;
+      console.log(showDaw);
+
+    } 
+    else if ((testBoolEdit == true) && (showDaw == true)) {
+
+        let expandButtonText = document.getElementById("master_controls_expand");
+
+        expandButtonText.innerHTML = "EDIT THIS TRACK";
+
+    
+        
+        gsap.to("#cont_slider_boxes", {duration:0.25, height:"0vh", ease: "Power3.easeOut"}); 
+    
+        gsap.to("#wrapper_cont", {duration:0.25, width:420, height:420,  ease:"Power3.easeOut"}); 
+        showDaw = false;
+        console.log(showDaw);
+    } 
+    else { 
+
+    }
+}
+
+
+
 document.getElementById("preview").addEventListener("mouseover", preview);
 document.getElementById("preview").addEventListener("mouseout", stopPreview);
+
+
+
+var tlFlipCard = gsap.timeline({paused: true});
+tlFlipCard.to("#wrapper_cont", {duration:0.75, rotationY:"+=90",ease:"Back.easeIn", opacity:0})
 
 let testBool = true;
 let showDirections = false;
 
+// gsap.set("#flipMe", {visibility:"hidden"});
 function toggle() {
+
 
     var delay = 0.25;
 
-    var tlFlipCard = gsap.timeline({paused: true});
-    tlFlipCard.to("#wrapper_cont", {duration:0.5,opacity:0, ease:"Back.easeInOut"})
-
     if ((testBool == true) && (showDirections == false)) {
-        pointerEventsOff();
-        tlFlipCard.play();
-        gsap.to("#flipMe_return_direx", {duration:0.5, opacity:1, delay:.5, visibility:"visible", onComplete:pointerEventsOn});
 
-        const myButton = document.getElementById('flipMe_return_direx');
-        myButton.innerHTML = 'PLAYER';
-        document.getElementById('flipMe_return_direx').style.backgroundColor = '#495A58';
-        document.getElementById('flipMe_return_direx').style.color = '#CEC6B3';
-    } 
-    else if ((testBool == true) && (showDirections == true)) {} 
-    else {
         pointerEventsOff();
-        tlFlipCard.reverse();
-        gsap.to("#wrapper_cont", {duration:0.5, opacity:1, ease:"Back.easeInOut"})
+
+        gsap.set("#flipMe", {pointerEvents:"none", autoAlpha:0, visibility:"hidden"});
+
+        tlFlipCard.play();
+        gsap.set("#content_back_img", {autoAlpha:0});  
+        gsap.set("#content_back_img_direx", {autoAlpha:1});  
         gsap.to("#flipMe_return_direx", {duration:0.5, opacity:1, delay:.5,visibility:"visible", onComplete:pointerEventsOn});
 
-        const myButton = document.getElementById('flipMe_return_direx');
-        document.getElementById('flipMe_return_direx').style.backgroundColor = '#CEC6B3';
-        myButton.innerHTML = 'ALBUM ART';
-        document.getElementById('flipMe_return_direx').style.color = '#495A58';
+    } 
+    else if ((testBool == true) && (showDirections == true)) {
+
+    } 
+    else {
+
+        pointerEventsOff();
+
+        gsap.set("#flipMe_return_direx", {pointerEvents:"none", autoAlpha:0, visibility:"hidden"});
+
+        gsap.set("#flipMe", {visibility:"visible"});
+        pointerEventsOff();
+        // gsap.set(".flipMePointer", {pointerEvents:"auto"});
+
+        gsap.to("#flipMe", {duration:0.5, opacity:1, delay:.5,visibility:"visible", onComplete:pointerEventsOn});
+        tlFlipCard.reverse();
     }
     
     testBool = !testBool;
 }
+
 
 downloadButton.onclick = function () {
     render();
@@ -519,11 +642,25 @@ function validateToken(viewer, objkt){
     })
     .catch(err => console.log('error', err));
 }
+// function validateToken(viewer, owner){
+    
+//     let validated = (viewer == owner);
+//     let enableDownloads = ((viewer != null) && (owner != null) && (viewer == owner));
+
+//     if((enableDownloads)){
+//         // console.log("Wallet Synced & Downloads Enabled");
+//         downloadButton.style.visibility = 'visible';
+//         purchaseElement.style.visibility = 'hidden';
+//     } else {
+//         // console.log("Sync Wallet To Enable Downloads");
+//         downloadButton.style.visibility = 'hidden';
+//         purchaseElement.style.visibility = 'visible';
+//     }
+// }
 
 const progressElem_curr = document.getElementById('progress_current');
 const progressElem = document.getElementById("progress");
 let lastIndex = 0;
-
 setInterval(() => {
     const progress = Tone.Transport.ticks / Tone.Time(totalLength()).toTicks();
     const width = Math.floor(progress * 100);
@@ -570,55 +707,61 @@ setInterval(() => {
 
 }, 200);
 
+//HICETNUNC VERIFICATION
+
 function validateToken(viewer, objkt){
 
     console.log("///////ABOUT:")
-    console.log("• You are viewing an interactive music collectible with an integrated looper, token gate and direct download mechanism. Collect on the Tezos Blockchain to unlock and download edits as WAV files, when connecting your web3 wallet to a public marketplace.")
+    console.log("• Interactive music collectible with token gate and direct download mechanism.")
+    
     console.log("////////RIGHTS:")
     console.log("• Original artist retains all creative rights to downloaded material.")
-    console.log("• Collectors are fully encouraged to use downloaded edits in mix tapes, social content and public performances.")
+    console.log("• Collectors are fully encouraged to use .wav file in mix tapes, social content and public performances.")
     console.log("• Collectors are not allowed to distribute or repackage for direct sale or distribution in any way.")
     console.log("• Collector will assume no other rights.")
     
-    const url = 'https://api.tzkt.io/v1/bigmaps/511/keys?key.address=' + viewer + '&key.nat=' + objkt + '&select=value';
-    axios.get(url)
-    .then(result => {
-        let count = result.data ?? [];
-        isOwned = count.length > 0;
+        const url = 'https://api.tzkt.io/v1/bigmaps/511/keys?key.address=' + viewer + '&key.nat=' + objkt + '&select=value';
+        axios.get(url)
+        .then(result => {
+            let count = result.data ?? [];
+            isOwned = count.length > 0;
     
     console.log("////////VERIFYING OWNER...")
     console.log("VIEWER:")
     console.log(viewer)
     console.log("OBJKT:")
     console.log(objkt)
-      
-    if(isOwned){
-
-        console.log("is owned")
-
-        console.log("CONFIRMING:")
-        console.log(isOwned)
-        console.log("• Owner Verified: Downloads Enabled")
-        console.log("DOWNLOADS ENABLED")
-
-        downloadButton.style.display = 'block';
-        purchaseElement.style.display = 'none';
-        downloadButton.onclick = function () {
-            render();
-        }
-        
-        } else {
-        console.log("CONFIRMING:")
-        console.log(isOwned)                    
-        console.log("• Owner Not Verified: Collect to Unlock Downloads")
-        console.log("COLLECT TO DOWNLOAD")
-
-        downloadButton.style.display = 'none';
-        purchaseElement.style.display = 'block';
-        
-        }
-    })
-    .catch(err => console.log('error', err));
-}
     
-validateToken(viewer, objkt)
+      
+            console.log(isOwned + " isOwned")
+      
+            if(isOwned){
+    
+                console.log("CONFIRMING:")
+                console.log(isOwned)
+                console.log("• Owner Verified: Downloads Enabled")
+                console.log("DOWNLOADS ENABLED")
+    
+                downloadButton.style.display = 'block';
+                purchaseElement.style.display = 'none';
+                downloadButton.onclick = function () {
+                    render();
+                }
+                
+                } else {
+    
+                console.log("CONFIRMING:")
+                console.log(isOwned)                    
+                console.log("• Owner Not Verified: Collect to Unlock Downloads")
+                console.log("COLLECT TO DOWNLOAD")
+    
+                downloadButton.style.display = 'none';
+                purchaseElement.style.display = 'block';
+                
+                }
+            })
+        .catch(err => console.log('error', err));
+      }
+    
+    
+    validateToken(viewer, objkt)
