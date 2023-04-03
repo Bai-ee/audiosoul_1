@@ -821,7 +821,7 @@
     margin:0;
   }
   
-  @font-face {
+  /* @font-face {
   font-family: Poppins;
   src: url(Poppins-Regular.otf);
   }
@@ -838,7 +838,7 @@
   @font-face {
   font-family: Randhu;
   src: url(Poppins-Regular.otf);
-  }
+  } */
 
   
   .btn {
@@ -1669,7 +1669,7 @@
    
   }
 
-    @font-face {
+    /* @font-face {
   font-family: Poppins;
   src: url(Poppins-Regular.otf);
   }
@@ -1686,7 +1686,7 @@
   @font-face {
   font-family: Randhu;
   src: url(Poppins-Regular.otf);
-  }
+  } */
 
   
   .btn {
@@ -5965,7 +5965,7 @@ display:none;
   }
   
   #progress_cont {
-    margin-top: 10px;
+    margin-top: -3px;
     margin-bottom: 0px;
     width: 300px;
     display: flex;
@@ -5973,7 +5973,7 @@ display:none;
     align-items: center;
     opacity: 1;
     visibility: inherit;
-    background-color:transparent;
+    background-color:#e1dbcd;
     padding-top: 10px;
     padding-bottom: 10px;
     /* max-width: 284px; */
@@ -6766,6 +6766,12 @@ display:none;
   
   
   
+
+
+
+
+
+
   
   
     

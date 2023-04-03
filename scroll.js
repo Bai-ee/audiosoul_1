@@ -77,6 +77,67 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function initMediaPlayer(){
 
+
+const svgElement2 = document.getElementById('statusScriptIcon');
+const newSvgContent2 = `
+<circle cx="20" cy="20" r="18" stroke="#CEC6B3" stroke-width="4" fill="#576B68" />
+<path d="M13 20 l5 5 l10 -10" stroke="#CEC6B3" stroke-width="4" fill="none" />`;
+
+document.getElementById("statusScript").innerHTML = "Visual Assets Loaded";
+document.getElementById('statusScript').style.color = '#576B68';
+svgElement2.innerHTML = newSvgContent2;
+
+document.getElementById("statusTitle").innerHTML = "PLEASE WAIT";
+
+function startMessaging() {
+
+  document.getElementById("statusTitle").innerHTML = "STILL WORKING";
+}
+
+setTimeout(startMessaging, 5000); 
+
+function startMessaging2() {
+
+  document.getElementById("statusTitle").innerHTML = "ALMOST THERE";
+
+  document.getElementById("statusInformation").innerHTML = "This media player works off a distributed file system.";
+
+  document.getElementById("statusInfo").innerHTML = "";
+  
+  
+
+}
+
+setTimeout(startMessaging2, 10000); 
+
+function startMessaging3() {
+
+  document.getElementById("statusTitle").innerHTML = "STILL WORKING";
+
+  document.getElementById("statusInformation").innerHTML = "Load times vary across devices and location.";
+
+  document.getElementById("statusInfo").innerHTML = "";
+  
+
+  
+}
+
+setTimeout(startMessaging3, 15000); 
+
+function startMessaging4() {
+
+  document.getElementById("statusTitle").innerHTML = "LOADING...";
+
+  document.getElementById("statusInformation").innerHTML = "Your player should load shortly, if not please refresh.";
+
+}
+
+setTimeout(startMessaging4, 20000); 
+
+
+
+
+
   for (let i = 1; i <= numBoxes; i++) {
     const src = "component_bg_img.svg"
     const num = document.createElement("div");

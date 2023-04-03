@@ -182,35 +182,13 @@ var renderedBufferIndex = 99;
 
 Tone.loaded().then(function () {
 
-    // gsap.set('.repeat-container, .repeatContainer', {visibility:"hidden"}); 
+gsap.set("#statusTitle, #statusInfo, #statusInformation, #statusItems", {autoAlpha:0});
+document.getElementById('statusGif').style.display = 'block';
 
 
-    const svgElement1 = document.getElementById('statusScrollIcon');
-    const newSvgContent1 = `
-    <circle cx="20" cy="20" r="18" stroke="#CEC6B3" stroke-width="4" fill="#576B68" />
-    <path d="M13 20 l5 5 l10 -10" stroke="#CEC6B3" stroke-width="4" fill="none" />`;
+    
 
-    const svgElement2 = document.getElementById('statusScriptIcon');
-    const newSvgContent2 = `
-    <circle cx="20" cy="20" r="18" stroke="#CEC6B3" stroke-width="4" fill="#576B68" />
-    <path d="M13 20 l5 5 l10 -10" stroke="#CEC6B3" stroke-width="4" fill="none" />`;
-
-    const svgElement3 = document.getElementById('statusAudioIcon');
-    const newSvgContent3 = `
-    <circle cx="20" cy="20" r="18" stroke="#CEC6B3" stroke-width="4" fill="#576B68" />
-    <path d="M13 20 l5 5 l10 -10" stroke="#CEC6B3" stroke-width="4" fill="none" />`;
-
-    document.getElementById("statusScroll").innerHTML = "Player Code Loaded";
-    document.getElementById('statusScroll').style.color = '#576B68';
-    svgElement1.innerHTML = newSvgContent1;
-
-    document.getElementById("statusScript").innerHTML = "Visual Assets Loaded";
-    document.getElementById('statusScript').style.color = '#576B68';
-    svgElement2.innerHTML = newSvgContent2;
-
-    document.getElementById("statusAudio").innerHTML = "WAV Files Loaded";
-    document.getElementById('statusAudio').style.color = '#576B68';
-    svgElement3.innerHTML = newSvgContent3;
+    
 
 
     status.innerHTML = "Master Track"
@@ -218,28 +196,36 @@ Tone.loaded().then(function () {
     enableElements();
     loadPreset(0);
 
-    gsap.to('#flipMe', {duration:0.2,opacity:0, delay:1.5, onComplete: () => {
-        setSliderVisibility();
-        initialSliderPositionAndBounds();
-        mainTimline();
-      }});
-
+    // gsap.to('#flipMe', {duration:0.2, backgroundColor:"transparent", border:"none",  delay:1.5, onComplete: () => {
+    //     setSliderVisibility();
+    //     initialSliderPositionAndBounds();
+    //     mainTimline();
+    //   }});
+    gsap.set("#flipMe", {backgroundColor:"transparent", border:"none"});
+    gsap.to("#flipMe", {delay:.5, duration:0.25, autoAlpha:0, onComplete: () => {
+            setSliderVisibility();
+            initialSliderPositionAndBounds();
+            mainTimline();
+          }});
+          
     gsap.to("#cont_slider_boxes", {duration:1, autoAlpha:1, ease:"Power4.easeInOut"},0);
     // gsap.to("#cont_slider_boxes", {duration:1, autoAlpha:1, ease:"Power4.easeInOut"},0);
 
     //here
 
+gsap.set("#secondaryControls", {autoAlpha:0});
 
 var tlStageBlock
 function mainTimline() {
   tlStageBlock = gsap.timeline({delay:0});
   tlStageBlock.timeScale( 2 );
+  tlStageBlock.to("#flipMe", {duration:0.25, autoAlpha:0},0);
   tlStageBlock.set("#stageBlock", {zIndex:1},0);
   tlStageBlock.to("#stageBlock", {duration:1, autoAlpha:0.8},0);
 //   tlStageBlock.to("#flipMe_return_direx", {duration:3, delay:0, autoAlpha:1, ease:"Power4.easeInOut"});
   tlStageBlock.from("#wrapper_cont", {duration:1,opacity:0},"-=2");
   tlStageBlock.from("#wrapper", {duration:1, autoAlpha:0});
-  tlStageBlock.to("#header, #presets, #pre2,#boxes_cont, #master_controls, #progress_cont, .marquee, #footer", {duration:3, stagger:0.35, autoAlpha:1, delay:1, ease:"Power4.easeInOut"},.5);
+  tlStageBlock.to("#header, #presets, #pre2,#boxes_cont, #master_controls, #secondaryControls, #progress_cont, #footer", {duration:3, stagger:0.35, autoAlpha:1, delay:1, ease:"Power4.easeInOut"},.5);
   tlStageBlock.to("#wrapper", {duration:0.25, height:"100%", width:"100%", ease:"Power1.easeOut"},0);
   tlStageBlock.to('.loader, #wrapper_bg p', {duration:1,opacity: 0},0);
 
@@ -574,7 +560,12 @@ document.getElementById("preview").addEventListener("mouseout", stopPreview);
 
 
 var tlFlipCard = gsap.timeline({paused: true});
-tlFlipCard.to("#wrapper_cont", {duration:0.75, rotationY:"+=90",ease:"Back.easeIn", opacity:0})
+// tlFlipCard.to("#wrapper_cont", {duration:0.75, rotationY:"+=90",ease:"Back.easeIn", opacity:0})
+// tlFlipCard.to("#stageBlock", {duration:0.25, ease:"Back.easeOut", opacity:0})
+
+tlFlipCard.to("#wrapper_cont", {duration:0.75, opacity:0, ease:"Back.easeIn", opacity:0})
+tlFlipCard.to("#stageBlock", {duration:0.25, ease:"Back.easeOut", opacity:0})
+
 
 let testBool = true;
 let showDirections = false;
@@ -595,6 +586,9 @@ function toggle() {
         gsap.set("#content_back_img", {autoAlpha:0});  
         gsap.set("#content_back_img_direx", {autoAlpha:1});  
         gsap.to("#flipMe_return_direx", {duration:0.5, opacity:1, delay:.5,visibility:"visible", onComplete:pointerEventsOn});
+
+
+
 
     } 
     else if ((testBool == true) && (showDirections == true)) {

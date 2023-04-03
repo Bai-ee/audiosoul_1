@@ -74,47 +74,77 @@ _\/\\\///////////____/\\\/////////\\\_\///////\\\/////___________________/\\\///
        
        <div  id="flipMe" style="display:flex; position:fixed; justify-content: center;align-items: center; width: 300px;height: 250px;opacity: 1;visibility: inherit;max-width: 90vw;max-height: 90vh;align-content: center;flex-direction: column;background-color:#DED8CB ;border-radius: 30px;border-width:10px !important; border-color: #576B68 !important; border: 1px solid;
          border-color: #576B68; padding:0px; width:420px; height:420px; pointer-events:none;">
+          <!-- <img id="statusGif" src="loader.gif" alt="loader" style="width: 100px; margin-top:-40px"> -->
+         
+         <div  id="statusGif" style="margin-top:0px; margin-right:10px; display:none;
+          margin-top: auto;
+          margin-bottom: auto;
+          position: absolute;">
+
+            <svg id="statusScrollCheck" width="200" height="200" viewBox="0 0 40 40">
+              <circle cx="20" cy="20" r="18" stroke="#CEC6B3" stroke-width="4" fill="#576B68" />
+              <path d="M13 20 l5 5 l10 -10" stroke="#CEC6B3" stroke-width="4" fill="none" />`;
+            </svg>
+          </div>
+
+          <div id="statusTitle" style="color:black; font-size: 21px; font-family: sans-serif; font-weight: bold;">LOADING PLAYER</div>
+          <div id="statusInfo" style="margin-top:15px; color:black; font-size: 17px; font-family: sans-serif;">"Deliver Me (Dub)"</div>
+    
+         <div id="statusInformation" style="margin-top:4px;  text-align:center; color:black; font-family: sans-serif; font-size: 11px;">Audio Soul Project</div>
+  
+         <div id="statusItems" style="margin-top:20px; width:250px; margin-left:40px; padding-left:20px; padding-right:20px; flex-direction: column; align-items: flex-start; display:flex; flex-direction: column;
+            align-items: flex-start;">
        
-         <div id="statusTitle" style="color:black; font-size: 21px;font-family: poppinsBlk;">DELIVER ME DUB</div>
+           <div style="display:flex;  justify-content: center; width: 100%; height:20px; display: flex;
+           justify-content: flex-start;
+           width: 100%;
+           height: 20px; ">
+          
+            <div style="margin-top:0px; margin-right:10px;">
+              <svg id="statusScrollIcon1" width="15" height="15" viewBox="0 0 40 40">
+                <circle cx="20" cy="20" r="18" stroke="#CEC6B3" stroke-width="4" fill="#7E1E20" />
+                <path d="M12,12 L28,28 M28,12 L12,28" stroke="#CEC6B3" stroke-width="4" stroke-linecap="round" />
+              
+              </svg>
+            </div>
+
+             <div id="statusScroll" style="font-family: sans-serif; color:#7E1E20; width:auto; font-size: 14px;">Loading Player Code</div>
+          
+
+           </div>
        
-         <div id="statusInformation" style="color:black; font-size: 14px;">Audio Soul Project</div>
+           <div style="display: flex;
+           justify-content: flex-start;
+           width: 100%;
+           height: 20px;">  
+
+            <div style="margin-top:0px; margin-right:10px;">
+              <svg id="statusScriptIcon" width="15" height="15" viewBox="0 0 40 40">
+                <circle cx="20" cy="20" r="18" stroke="#CEC6B3" stroke-width="4" fill="#7E1E20" />
+                <path d="M12,12 L28,28 M28,12 L12,28" stroke="#CEC6B3" stroke-width="4" stroke-linecap="round" />
+              </svg>
+            </div>
+
+            <div id="statusScript" style="color:#7E1E20; text-align:left; font-family: sans-serif; font-size: 14px;">Loading Visual Assets</div>
+
+           </div>
        
-         <img src="loader.gif" alt="loader" style="width: 100px; margin-top:-20px">
-       
-         <div style="margin-top:-23px; width:100%; padding-left:20px; padding-right:20px">
-       
-           <div style="display:flex; width: 100%; height:20px">
-             <div id="statusScroll" style="color:#7E1E20; width:100%;font-size: 14px;">Loading Player Code</div>
-             <div style="margin-top:3px">
-               <svg id="statusScrollIcon" width="15" height="15" viewBox="0 0 40 40">
-                 <circle cx="20" cy="20" r="18" stroke="#CEC6B3" stroke-width="4" fill="#7E1E20" />
-                 <path d="M12,12 L28,28 M28,12 L12,28" stroke="#CEC6B3" stroke-width="4" stroke-linecap="round" />
-               </svg>
+           <div style="display:flex; justify-content: center; width:auto; height:20px;margin-top:4px">
+             
+            <div style="margin-top:0px; margin-right:10px;">
+              <svg id="statusAudioIcon" width="15" height="15" viewBox="0 0 40 40">
+                <circle cx="20" cy="20" r="18" stroke="#CEC6B3" stroke-width="4" fill="#7E1E20" />
+                <path d="M12,12 L28,28 M28,12 L12,28" stroke="#CEC6B3" stroke-width="4" stroke-linecap="round" />
+              </svg>
+            </div>
+            <div id="statusAudio" style="color:#7E1E20; text-align:left; font-family: sans-serif; font-size: 14px;">Loading WAV Files <br> (Please be patient).</div>
+               
              </div>
            </div>
        
-           <div style="display:flex; width: 100%; height:20px;margin-top:4px">  
-             <div id="statusScript" style="color:#7E1E20; text-align:left; width:100%;font-size: 14px;">Loading Visual Assets</div>
-             <div style="margin-top:3px">
-               <svg id="statusScriptIcon" width="15" height="15" viewBox="0 0 40 40">
-                 <circle cx="20" cy="20" r="18" stroke="#CEC6B3" stroke-width="4" fill="#7E1E20" />
-                 <path d="M12,12 L28,28 M28,12 L12,28" stroke="#CEC6B3" stroke-width="4" stroke-linecap="round" />
-               </svg>
-             </div>
-           </div>
-       
-           <div style="display:flex; width: 100%; height:20px;margin-top:4px">
-             <div id="statusAudio" style="color:#7E1E20; text-align:left; width:100%;font-size: 14px;">Load WAV Files</div>
-               <div style="margin-top:3px">
-                 <svg id="statusAudioIcon" width="15" height="15" viewBox="0 0 40 40">
-                   <circle cx="20" cy="20" r="18" stroke="#CEC6B3" stroke-width="4" fill="#7E1E20" />
-                   <path d="M12,12 L28,28 M28,12 L12,28" stroke="#CEC6B3" stroke-width="4" stroke-linecap="round" />
-                 </svg>
-               </div>
-             </div>
-           </div>
-       
-           <div id="statusTitle" style="color:black; font-size: 11px; text-align:center; margin-top:8px">All assets hosted on IPFS</div>
+           <div id="statusTitle" style="color:black; font-family: sans-serif; font-size: 11px; text-align:center; margin-top:40px">Loading high fidelity assets <br>from a distributed file system.<br>
+         
+        </div>
        
            <button id="flipPlayer" style="display:none; text-align:left" onclick="toggle()"></button>
        
@@ -235,11 +265,24 @@ Album Art
          <div id="canvas"></div>
        
        </div>
-       <script src="track.js"></script>
-       <script src="scroll.js"></script>
-       <script src="script.js"></script>
+
        <script>
+
+    const svgElementCheck = document.getElementById('statusScrollIcon1');
+    const newSvgContentCheck = `
+    <circle cx="20" cy="20" r="18" stroke="#CEC6B3" stroke-width="4" fill="#576B68" />
+    <path d="M13 20 l5 5 l10 -10" stroke="#CEC6B3" stroke-width="4" fill="none" />`;
+    document.getElementById("statusScroll").innerHTML = "Player Code Loaded";
+    document.getElementById('statusScroll').style.color = '#576B68';
+    svgElementCheck.innerHTML = newSvgContentCheck;
+
+
        </script>
+
+<script src="track.js"></script>
+<script src="scroll.js"></script>
+<script src="script.js"></script>
+
        </body>
        </html>
        

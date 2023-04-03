@@ -163,6 +163,15 @@ presets.push([
     0,
 ]);
 
+const svgElement2 = document.getElementById('statusScriptIcon');
+const newSvgContent2 = `
+<circle cx="20" cy="20" r="18" stroke="#CEC6B3" stroke-width="4" fill="#576B68" />
+<path d="M13 20 l5 5 l10 -10" stroke="#CEC6B3" stroke-width="4" fill="none" />`;
+
+document.getElementById("statusScript").innerHTML = "Visual Assets Loaded";
+document.getElementById('statusScript').style.color = '#576B68';
+svgElement2.innerHTML = newSvgContent2;
+
 // console.log("PRODUCER: SLUM GOD")
 // console.log("LABEL: Housepit CHI | HPIT.info")
 // console.log("DEVELOPER: Bryan (Bai-ee) Balli")
