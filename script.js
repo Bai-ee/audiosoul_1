@@ -20,22 +20,22 @@ let elements = [];
 
 purchaseElement.addEventListener('click', function(){
     
-    gsap.fromTo("#body", {backgroundColor:"red", ease: "Power1.easeOut"}, {backgroundColor:"black"});
+    gsap.fromTo("#master_controls", {backgroundColor:"#d68d8d", ease: "Power1.easeOut"}, {backgroundColor:"transparent"});
     
     });
 
     playElement.addEventListener('click', function(){
 
 
-        if (playElement.className == "stop") {
+        // if (playElement.className == "stop") {
 
-            gsap.fromTo("#body", {backgroundColor:"red", ease: "Power1.easeOut"}, {backgroundColor:"black"});
-        }
-        else {
+        //     gsap.fromTo("#master_controls", {backgroundColor:"#d68d8d", ease: "Power1.easeOut"}, {backgroundColor:"transparent"});
+        // }
+        // else {
 
-        gsap.fromTo("#body", {backgroundColor:"green", ease: "Power1.easeOut"}, {backgroundColor:"black"});
+        // gsap.fromTo("#master_controls", {backgroundColor:"#8dd6ad", ease: "Power1.easeOut"}, {backgroundColor:"transparent"});
         
-        }
+        // }
     });
 
 
@@ -207,7 +207,7 @@ document.getElementById('statusGif').style.display = 'block';
             initialSliderPositionAndBounds();
             mainTimline();
           }});
-          
+
     gsap.to("#cont_slider_boxes", {duration:1, autoAlpha:1, ease:"Power4.easeInOut"},0);
     // gsap.to("#cont_slider_boxes", {duration:1, autoAlpha:1, ease:"Power4.easeInOut"},0);
 
@@ -215,23 +215,26 @@ document.getElementById('statusGif').style.display = 'block';
 
 gsap.set("#secondaryControls", {autoAlpha:0});
 
+
+
+
 var tlStageBlock
 function mainTimline() {
   tlStageBlock = gsap.timeline({delay:0});
   tlStageBlock.timeScale( 2 );
   tlStageBlock.to("#flipMe", {duration:0.25, autoAlpha:0},0);
   tlStageBlock.set("#stageBlock", {zIndex:1},0);
-  tlStageBlock.to("#stageBlock", {duration:1, autoAlpha:0.8},0);
+  tlStageBlock.to("#stageBlock", {duration:1, autoAlpha:0.9},0);
 //   tlStageBlock.to("#flipMe_return_direx", {duration:3, delay:0, autoAlpha:1, ease:"Power4.easeInOut"});
   tlStageBlock.from("#wrapper_cont", {duration:1,opacity:0},"-=2");
   tlStageBlock.from("#wrapper", {duration:1, autoAlpha:0});
-  tlStageBlock.to("#header, #presets, #pre2,#boxes_cont, #master_controls, #secondaryControls, #progress_cont, #footer", {duration:3, stagger:0.35, autoAlpha:1, delay:1, ease:"Power4.easeInOut"},.5);
+  tlStageBlock.to("#header, #presets, #pre2,#boxes_cont, #master_controls, #secondaryControls, #progress_cont, #footer", {duration:1, stagger:0.3, autoAlpha:1, delay:0, ease:"Power4.easeInOut"},"-=1");
   tlStageBlock.to("#wrapper", {duration:0.25, height:"100%", width:"100%", ease:"Power1.easeOut"},0);
   tlStageBlock.to('.loader, #wrapper_bg p', {duration:1,opacity: 0},0);
 
   document.getElementById('wrapper_bg').style.display = "none";
   nudge = null;
-  gsap.to("#slider_cont",{duration:0.25, autoAlpha:1, delay:0, oncomplete: () => {
+  gsap.to("#slider_cont",{duration:0.25, autoAlpha:0, delay:0, oncomplete: () => {
     setSliderVisibility();
     initialSliderPositionAndBounds();
   }});
@@ -563,8 +566,8 @@ var tlFlipCard = gsap.timeline({paused: true});
 // tlFlipCard.to("#wrapper_cont", {duration:0.75, rotationY:"+=90",ease:"Back.easeIn", opacity:0})
 // tlFlipCard.to("#stageBlock", {duration:0.25, ease:"Back.easeOut", opacity:0})
 
-tlFlipCard.to("#wrapper_cont", {duration:0.75, opacity:0, ease:"Back.easeIn", opacity:0})
-tlFlipCard.to("#stageBlock", {duration:0.25, ease:"Back.easeOut", opacity:0})
+tlFlipCard.to("#wrapper_cont", {duration:0.75, scale:0, opacity:0, ease:"Back.easeOut", opacity:0},0)
+tlFlipCard.to("#stageBlock", {duration:2, ease:"Back.easeOut", opacity:0},0.2)
 
 
 let testBool = true;
@@ -573,6 +576,9 @@ let showDirections = false;
 // gsap.set("#flipMe", {visibility:"hidden"});
 function toggle() {
 
+
+
+gsap.set("#statusGif, #flipMe", {display:"none"});
 
     var delay = 0.25;
 
@@ -596,7 +602,6 @@ function toggle() {
     } 
     else {
 
-        pointerEventsOff();
 
         gsap.set("#flipMe_return_direx", {pointerEvents:"none", autoAlpha:0, visibility:"hidden"});
 
@@ -605,7 +610,12 @@ function toggle() {
         // gsap.set(".flipMePointer", {pointerEvents:"auto"});
 
         gsap.to("#flipMe", {duration:0.5, opacity:1, delay:.5,visibility:"visible", onComplete:pointerEventsOn});
-        tlFlipCard.reverse();
+        let speed = 2; // Set the speed value to 2x
+tlFlipCard.timeScale(speed); 
+tlFlipCard.reverse(1, {
+    ease: Power4.easeOut,
+    easeParams: [1.5]
+  });
     }
     
     testBool = !testBool;
