@@ -118,7 +118,7 @@ setTimeout(startMessaging2, 10000);
 
 function startMessaging3() {
 
-  document.getElementById("statusTitle").innerHTML = "STILL WORKING";
+  document.getElementById("statusTitle").innerHTML = "HI-FI FILES";
 
   document.getElementById("statusInformation").innerHTML = "Load times vary across devices and location";
 
@@ -142,9 +142,9 @@ setTimeout(startMessaging4, 20000);
 
 function startMessaging4() {
 
-  document.getElementById("statusTitle").innerHTML = "NO MORE WATING";
+  document.getElementById("statusTitle").innerHTML = "THANKS FOR WATING";
 
-  document.getElementById("statusInformation").innerHTML = "Load times improve as you load the player and call these files";
+  document.getElementById("statusInformation").innerHTML = "Load times improve as you interact with the player";
 
 }
 
@@ -154,7 +154,7 @@ function startMessaging5() {
 
   document.getElementById("statusTitle").innerHTML = "ON MOBILE?";
 
-  document.getElementById("statusInformation").innerHTML = "Your player should load shortly, desktop connections perform best";
+  document.getElementById("statusInformation").innerHTML = "Desktop connections perform best";
 
 }
 
@@ -164,7 +164,7 @@ function startMessaging6() {
 
   document.getElementById("statusTitle").innerHTML = "LAST CALL";
 
-  document.getElementById("statusInformation").innerHTML = "Calling files from a decentralized server comes with great power. Performance is not yet one of them.";
+  document.getElementById("statusInformation").innerHTML = "We understand, refresh or try again later";
 
 }
 
@@ -172,32 +172,33 @@ setTimeout(startMessaging6, 35000);
 
 function startMessaging7() {
 
-  document.getElementById("statusTitle").innerHTML = "REFRESH";
+  document.getElementById("statusTitle").innerHTML = "I.P.F.S";
 
-  document.getElementById("statusInformation").innerHTML = "You are free to wait, or please Try Again Later!";
+  document.getElementById("statusInformation").innerHTML = "From a distributed file system";
+
 
 }
 
-setTimeout(startMessaging7, 4000); 
+setTimeout(startMessaging7, 10000); 
 
-function startMessaging7() {
+// function startMessaging7() {
 
-  gsap.set("#statusTitle, #statusInfo, #statusInformation, #statusItems", {autoAlpha:0});
-  document.getElementById('statusGif').style.display = 'block';
+//   gsap.set("#statusTitle, #statusInfo, #statusInformation, #statusItems", {autoAlpha:0});
+//   document.getElementById('statusGif').style.display = 'block';
   
-  const svgElementCheck = document.getElementById('statusGif');
-  const newSvgContentCheck = `
-  <circle cx="20" cy="20" r="18" stroke="#CEC6B3" stroke-width="4" fill="#7E1E20" />
-  <path d="M12,12 L28,28 M28,12 L12,28" stroke="#CEC6B3" stroke-width="4" stroke-linecap="round" />`;
+//   const svgElementCheck = document.getElementById('statusGif');
+//   const newSvgContentCheck = `
+//   <circle cx="20" cy="20" r="18" stroke="#CEC6B3" stroke-width="4" fill="#7E1E20" />
+//   <path d="M12,12 L28,28 M28,12 L12,28" stroke="#CEC6B3" stroke-width="4" stroke-linecap="round" />`;
 
-  document.getElementById("statusScroll").innerHTML = "Player Code Loaded";
-  document.getElementById('statusScroll').style.color = '#576B68';
-  svgElementCheck.innerHTML = newSvgContentCheck;
+//   document.getElementById("statusScroll").innerHTML = "Player Code Loaded";
+//   document.getElementById('statusScroll').style.color = '#576B68';
+//   svgElementCheck.innerHTML = newSvgContentCheck;
 
-  document.getElementById('statusGif').style.display = 'block';
+//   document.getElementById('statusGif').style.display = 'block';
 
-}
-setTimeout(startMessaging7, 5000); 
+// }
+// setTimeout(startMessaging7, 5000); 
 
 
 
