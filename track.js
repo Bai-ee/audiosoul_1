@@ -1,10 +1,13 @@
 const trackDir = "";
 const bpm = 124;
+
 const parts = [
-  { file: "Audio_Soul_Project-Deliver_Me_Dub_Instrumental_16bit_master.3.wav", length: 8, loop: 1 },
-    { file: "Audio_Soul_Project-Deliver_Me_Dub_Instrumental_16bit_master.5.wav", length: 8, loop: 1 }, 
-    { file: "Audio_Soul_Project-Deliver_Me_Dub_Instrumental_16bit_master.7.wav", length: 8, loop: 1 },
-    { file: "Audio_Soul_Project-Deliver_Me_Dub_Instrumental_16bit_master.9.wav", length: 8, loop: 1 },
+    { file: "Audio_Soul_Project-Deliver_Me_Dub_Instrumental_16bit_master.1.wav", length: 4,  loop: 1 },
+    { file: "Audio_Soul_Project-Deliver_Me_Dub_Instrumental_16bit_master.2.wav", length: 4,  loop: 1 }, 
+    // { file: "Audio_Soul_Project-Deliver_Me_Dub_Instrumental_16bit_master.3.wav", length: 8,  loop: 1 },
+    { file: "Audio_Soul_Project-Deliver_Me_Dub_Instrumental_16bit_master.5.wav", length: 8,  loop: 1 }, 
+    { file: "Audio_Soul_Project-Deliver_Me_Dub_Instrumental_16bit_master.7.wav", length: 8,  loop: 1 },
+    { file: "Audio_Soul_Project-Deliver_Me_Dub_Instrumental_16bit_master.9.wav", length: 8,  loop: 1 },
     { file: "Audio_Soul_Project-Deliver_Me_Dub_Instrumental_16bit_master.11.wav", length: 8, loop: 1 },
     { file: "Audio_Soul_Project-Deliver_Me_Dub_Instrumental_16bit_master.13.wav", length: 4, loop: 1 }, 
     { file: "Audio_Soul_Project-Deliver_Me_Dub_Instrumental_16bit_master.15.wav", length: 4, loop: 1 }, 
@@ -18,13 +21,13 @@ const parts = [
     { file: "Audio_Soul_Project-Deliver_Me_Dub_Instrumental_16bit_master.31.wav", length: 8, loop: 1 }, 
     { file: "Audio_Soul_Project-Deliver_Me_Dub_Instrumental_16bit_master.33.wav", length: 8, loop: 1 }, 
     { file: "Audio_Soul_Project-Deliver_Me_Dub_Instrumental_16bit_master.35.wav", length: 8, loop: 1 },
-    { file: "Audio_Soul_Project-Deliver_Me_Dub_Instrumental_16bit_master.37.wav", length: 8, loop: 1 }, 
+    { file: "Audio_Soul_Project-Deliver_Me_Dub_Instrumental_16bit_master.37.wav", length: 8, loop: 1 },//18 
     { file: "Audio_Soul_Project-Deliver_Me_Dub_Instrumental_16bit_master.39.wav", length: 8, loop: 1 }, 
-    { file: "Audio_Soul_Project-Deliver_Me_Dub_Instrumental_16bit_master.41.wav", length: 8, loop: 1 },
-    { file: "Audio_Soul_Project-Deliver_Me_Dub_Instrumental_16bit_master.43.wav", length: 8, loop: 1 }, 
+    { file: "Audio_Soul_Project-Deliver_Me_Dub_Instrumental_16bit_master.41.wav", length: 4, loop: 1 },//20
+    { file: "Audio_Soul_Project-Deliver_Me_Dub_Instrumental_16bit_master.43.wav", length: 4, loop: 1 }, 
     { file: "Audio_Soul_Project-Deliver_Me_Dub_Instrumental_16bit_master.45.wav", length: 4, loop: 1 }, 
-    { file: "Audio_Soul_Project-Deliver_Me_Dub_Instrumental_16bit_master.47.wav", length: 4, loop: 1 },
-    { file: "Audio_Soul_Project-Deliver_Me_Dub_Instrumental_16bit_master.49.wav", length: 4, loop: 1 }, 
+    { file: "Audio_Soul_Project-Deliver_Me_Dub_Instrumental_16bit_master.47.wav", length: 8, loop: 1 },
+    { file: "Audio_Soul_Project-Deliver_Me_Dub_Instrumental_16bit_master.49.wav", length: 8, loop: 1 }, 
     { file: "Audio_Soul_Project-Deliver_Me_Dub_Instrumental_16bit_master.51.wav", length: 8, loop: 1 }, 
     { file: "Audio_Soul_Project-Deliver_Me_Dub_Instrumental_16bit_master.53.wav", length: 8, loop: 1 },
     { file: "Audio_Soul_Project-Deliver_Me_Dub_Instrumental_16bit_master.55.wav", length: 8, loop: 1 }, 
@@ -32,8 +35,9 @@ const parts = [
     { file: "Audio_Soul_Project-Deliver_Me_Dub_Instrumental_16bit_master.59.wav", length: 8, loop: 1 }, 
     { file: "Audio_Soul_Project-Deliver_Me_Dub_Instrumental_16bit_master.61.wav", length: 8, loop: 1 }, 
 ];
+
 const presets = [];
-presets.push([    
+presets.push([
     1,
     1,
     1,
@@ -52,6 +56,8 @@ presets.push([
     1,
     1,
     1,
+    1,
+    1,//20
     1,
     1,
     1,
@@ -65,7 +71,7 @@ presets.push([
     1,
     1,
 ]);
-presets.push([
+presets.push([    
     1,
     1,
     1,
@@ -185,6 +191,6 @@ svgElement2.innerHTML = newSvgContent2;
 // console.log("WEB: EditTrax.nft | .com")
 
 
-const downloadName = "No_Mills_(Bai-ee_/_Secret_Studio).wav"
-const boxHeight = 50; //min height == 40 -> otherwise clickable buttons are to small
+const downloadName = "Audio_Soul_Project_(Deliver_Me_DUB)_EDIT.wav"
+const boxHeight = 60; //min height == 40 -> otherwise clickable buttons are to small
 const reverseScrolling = false;

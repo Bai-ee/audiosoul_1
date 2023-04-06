@@ -24,7 +24,10 @@ purchaseElement.addEventListener('click', function(){
     
     });
 
-    playElement.addEventListener('click', function(){
+    downloadButton.addEventListener('click', function(){
+
+        gsap.fromTo("#master_controls", {backgroundColor:"#4F5B53", ease: "Power1.easeOut"}, {backgroundColor:"transparent"});
+   
 
 
         // if (playElement.className == "stop") {
@@ -191,7 +194,7 @@ document.getElementById('statusGif').style.display = 'block';
     
 
 
-    status.innerHTML = "Master Track"
+    status.innerHTML = "MASTER EDIT"
     playToggle.disabled = false;
     enableElements();
     loadPreset(0);
@@ -242,7 +245,7 @@ function mainTimline() {
 }
 
 function readyCheck(){
-
+    gsap.set("#statusGifLoader", {display:"none"});  
     mainTimline();
 }
 
@@ -271,7 +274,7 @@ async function presetLoaded() {
 
 function render() {
     console.log("Download")
-    status.innerHTML = "Render"
+    status.innerHTML = "RENDERING EDIT"
     const renderingPromise = Tone.Offline(({ transport }) => {
         transport.bpm.value = bpm;
 
@@ -293,7 +296,7 @@ function render() {
     }, Tone.Time(totalLength()))
 
     renderingPromise.then(buffer => {
-        status.innerHTML = "Delliver Me"
+        status.innerHTML = "MASTER EDIT"
         makeDownload(buffer.get())
     });
 
@@ -584,6 +587,9 @@ gsap.set("#statusGif, #flipMe", {display:"none"});
 
     if ((testBool == true) && (showDirections == false)) {
 
+        var albumExpand = document.getElementById("albumExpand");
+albumExpand.innerHTML = "VIEW PLAYER";
+
         pointerEventsOff();
 
         gsap.set("#flipMe", {pointerEvents:"none", autoAlpha:0, visibility:"hidden"});
@@ -601,6 +607,9 @@ gsap.set("#statusGif, #flipMe", {display:"none"});
 
     } 
     else {
+
+var albumExpand = document.getElementById("albumExpand");
+albumExpand.innerHTML = "VIEW ALBUM ART";
 
 
         gsap.set("#flipMe_return_direx", {pointerEvents:"none", autoAlpha:0, visibility:"hidden"});
@@ -748,6 +757,7 @@ function validateToken(viewer, objkt){
     
                 downloadButton.style.display = 'block';
                 purchaseElement.style.display = 'none';
+
                 downloadButton.onclick = function () {
                     render();
                 }
@@ -759,8 +769,15 @@ function validateToken(viewer, objkt){
                 console.log("• Owner Not Verified: Collect to Unlock Downloads")
                 console.log("COLLECT TO DOWNLOAD")
     
-                downloadButton.style.display = 'none';
-                purchaseElement.style.display = 'block';
+                // downloadButton.style.display = 'none';
+                // purchaseElement.style.display = 'block';
+
+                downloadButton.style.display = 'block';
+                purchaseElement.style.display = 'none';
+
+                downloadButton.onclick = function () {
+                    render();
+                }
                 
                 }
             })

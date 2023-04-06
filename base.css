@@ -29,7 +29,7 @@
     /*COLORS*/
     --primary: black;
     --secondary: rgb(0, 0, 0);
-    --progress-color:  #E5660B;
+    --progress-color:  #4F5B53;
 
     /*STAGE BACKGROUND*/ 
     --img-bg: url("backround.png");
@@ -79,7 +79,7 @@
     --txt-master: #576B68;
     --img-master-play: url("master_play.svg");
     --img-master-stop: url("master_stop.svg");
-    --txt_progress_color: black;
+    --txt_progress_color:#4F5B53;
     --radius-sm:0px;
     --radius-sm-samples:0px;
     
@@ -119,7 +119,7 @@
     /*colors*/
     --primary: #23302D;
     --secondary: #555;
-    --progress-color: #E5660B;
+    --progress-color: #AD8EC3;
     --bg-card: #2324298f;
     --bg-master: #576B68;
     --bg-btn-updown: #33373C;
@@ -127,7 +127,7 @@
     --slider: #576B68;
     --btn-hover: #6e6e6e;
     --txt: grey;
-    --txt-box: black;
+    --txt-box: #576B68;
     --progress-bg: yellow;
 
     --txt-marquee: white;

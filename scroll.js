@@ -67,7 +67,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   initMediaPlayer();
   initTimeline();
-  // mainTimline();
   setSliderVisibility();
   initialSliderPositionAndBounds();
 
@@ -87,7 +86,7 @@ document.getElementById("statusScript").innerHTML = "Visual Assets Loaded";
 document.getElementById('statusScript').style.color = '#576B68';
 svgElement2.innerHTML = newSvgContent2;
 
-document.getElementById("statusTitle").innerHTML = "PLEASE WAIT";
+document.getElementById("statusTitle").innerHTML = "LOADING...";
 
 function startMessaging() {
 
@@ -97,10 +96,9 @@ function startMessaging() {
 
   document.getElementById("statusInfo").innerHTML = "";
 
-
 }
 
-setTimeout(startMessaging, 5000); 
+// setTimeout(startMessaging, 5000); 
 
 function startMessaging2() {
 
@@ -110,11 +108,9 @@ function startMessaging2() {
 
   document.getElementById("statusInfo").innerHTML = "";
   
-  
-
 }
 
-setTimeout(startMessaging2, 10000); 
+// setTimeout(startMessaging2, 10000); 
 
 function startMessaging3() {
 
@@ -128,7 +124,7 @@ function startMessaging3() {
   
 }
 
-setTimeout(startMessaging3, 15000); 
+setTimeout(startMessaging3, 10000); 
 
 function startMessaging4() {
 
@@ -138,7 +134,7 @@ function startMessaging4() {
 
 }
 
-setTimeout(startMessaging4, 20000); 
+// setTimeout(startMessaging4, 20000); 
 
 function startMessaging4() {
 
@@ -148,7 +144,7 @@ function startMessaging4() {
 
 }
 
-setTimeout(startMessaging4, 25000); 
+setTimeout(startMessaging4, 20000); 
 
 function startMessaging5() {
 
@@ -158,17 +154,17 @@ function startMessaging5() {
 
 }
 
-setTimeout(startMessaging5, 30000); 
+// setTimeout(startMessaging5, 30000); 
 
 function startMessaging6() {
 
-  document.getElementById("statusTitle").innerHTML = "LAST CALL";
+  document.getElementById("statusTitle").innerHTML = "REFRESH";
 
-  document.getElementById("statusInformation").innerHTML = "We understand, refresh or try again later";
+  document.getElementById("statusInformation").innerHTML = "Sorry we can't complete your request. Please try again later.";
 
 }
 
-setTimeout(startMessaging6, 35000); 
+setTimeout(startMessaging6, 30000); 
 
 function startMessaging7() {
 
@@ -176,10 +172,9 @@ function startMessaging7() {
 
   document.getElementById("statusInformation").innerHTML = "From a distributed file system";
 
-
 }
 
-setTimeout(startMessaging7, 10000); 
+// setTimeout(startMessaging7, 10000); 
 
 // function startMessaging7() {
 
@@ -382,6 +377,14 @@ setTimeout(startMessaging7, 10000);
       num.innerText = "Loop 32";
       break;
 
+      case 33:
+        num.innerText = "Loop 33";
+        break;
+  
+        case 34:
+        num.innerText = "Loop 34";
+        break;
+
         num.innerText = "Default";
     }
 
@@ -424,6 +427,7 @@ function initTimeline(){
   gsap.set("#content_back_img_direx", {autoAlpha:0});
   gsap.set("#stageBlock", {autoAlpha:1}); 
   gsap.set("#preview", {autoAlpha:0},0)
+  gsap.set("#totalDuration", {display:"none"},0)
   gsap.set('.loader, #wrapper_bg p, #cont_slider_boxes', {opacity: 0}); 
 }
 // var tlStageBlock

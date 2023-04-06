@@ -70,11 +70,11 @@ _\/\\\///////////____/\\\/////////\\\_\///////\\\/////___________________/\\\///
        </head>
        
        <body id="body">
-      <button id="albumExpand" onclick="toggle()"> Album Art</button>
+      <button id="albumExpand" onclick="toggle()">VIEW ALBUM ART</button>
        
        <div  id="flipMe" style="display:flex; position:fixed; justify-content: center;align-items: center; width: 300px;height: 250px;opacity: 1;visibility: inherit;max-width: 90vw;max-height: 90vh;align-content: center;flex-direction: column;background-color:#DED8CB ;border-radius: 30px;border-width:10px !important; border-color: #576B68 !important; border: 1px solid;
          border-color: #576B68; padding:0px; width:420px; height:420px; pointer-events:none;">
-          <!-- <img id="statusGif" src="loader.gif" alt="loader" style="width: 100px; margin-top:-40px"> -->
+          <!-- <img id="statusGifLoader" class="Loader" src="loader.gif" alt="loader" style="width: 100px; margin-top:-40px"> -->
          <div  id="statusGif" style="margin-top:0px; margin-right:10px; display:none;
           margin-top: auto;
           margin-bottom: auto;
@@ -86,7 +86,7 @@ _\/\\\///////////____/\\\/////////\\\_\///////\\\/////___________________/\\\///
             </svg>
           </div>
 
-          <div id="statusTitle" style="color:black; font-size: 21px; font-family: sans-serif; font-weight: bold;">LOADING PLAYER</div>
+          <div id="statusTitle" style="color:black; text-align:center; font-size: 41px; font-family: sans-serif; font-weight: bold;">LOADING EXPERIENCE</div>
           <div id="statusInfo" style="margin-top:15px; color:black; font-size: 17px; font-family: sans-serif;">"Deliver Me (Dub)"</div>
     
          <div id="statusInformation" style="margin-top:4px;  text-align:center; color:black; font-family: sans-serif; font-size: 11px;">Audio Soul Project</div>
@@ -136,14 +136,14 @@ _\/\\\///////////____/\\\/////////\\\_\///////\\\/////___________________/\\\///
                 <path d="M12,12 L28,28 M28,12 L12,28" stroke="#CEC6B3" stroke-width="4" stroke-linecap="round" />
               </svg>
             </div>
-            <div id="statusAudio" style="color:#7E1E20; text-align:left; font-family: sans-serif; font-size: 14px;">Loading WAV Files <br> (Please be patient).</div>
+            <div id="statusAudio" style="color:#7E1E20; text-align:left; font-family: sans-serif; font-size: 14px;">Loading WAV Files <br></div>
                
              </div>
            </div>
        
-           <div id="statusTitle" style="color:black; font-family: sans-serif; font-size: 11px; text-align:center; margin-top:40px">Loading high fidelity assets <br>from a distributed file system.<br>
+           <!-- <div id="statusTitle" style="color:black; font-family: sans-serif; font-size: 11px; text-align:center; margin-top:40px">Loading high fidelity assets <br>from a distributed file system.<br>
          
-        </div>
+        </div> -->
        
            <button id="flipPlayer" style="display:none; text-align:left" onclick="toggle()"></button>
        
@@ -178,9 +178,9 @@ _\/\\\///////////____/\\\/////////\\\_\///////\\\/////___________________/\\\///
                    
                    <div id ="preset_cont">
                      <div id="presets">
-                       <div id="preset_img_1" data-value="0" class="preset active">DUB</div>
-                       <div id="preset_img_2" data-value="1" class="preset">RADIO</div>
-                       <div id="preset_img_3" data-value="2" class="preset">CLIP</div>
+                       <div id="preset_img_1" data-value="0" class="preset active">PREVIEW</div>
+                       <div id="preset_img_2" data-value="1" class="preset">DUB</div>
+                       <div id="preset_img_3" data-value="2" class="preset">EXTENDED</div>
                        <div id="preset_img_4" data-value="3" class="preset">ZERO</div>
                      </div>
                    </div>
@@ -215,11 +215,11 @@ _\/\\\///////////____/\\\/////////\\\_\///////\\\/////___________________/\\\///
                          <button id="play-toggle" class="play" disabled></button>
                        </div>
                        <div id="status">Loading...</div>
-                       <div id="totalDuration"></div>
                        <div id="glow-hover-download" class="glow-hover">
-                         <button style="display:none" id="download"></button>
-                         <div id="purchase"></div>
-                       </div>
+                        <button style="display:none" id="download"></button>
+                        <div id="purchase"></div>
+                      </div>
+                       <div id="totalDuration"></div>
                      </div>
        
                      <div class="repeat-container">
@@ -240,7 +240,7 @@ _\/\\\///////////____/\\\/////////\\\_\///////\\\/////___________________/\\\///
                     <button id="master_controls_expand" onclick="expand()">
        
                 
-Edit Track
+EDIT THIS TRACK
       
                    </button>
 
