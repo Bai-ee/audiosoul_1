@@ -26,9 +26,12 @@ purchaseElement.addEventListener('click', function(){
 
     downloadButton.addEventListener('click', function(){
 
-        gsap.fromTo("#master_controls", {backgroundColor:"#4F5B53", ease: "Power1.easeOut"}, {backgroundColor:"transparent"});
+        gsap.fromTo("#master_controls", {backgroundColor:"#4F5B53", ease: "Power1.easeOut"}, {backgroundColor:"#776388"});
+   gsap.set("#play-toggle, #download, #purchase, #trackRepeat, .repeat-text, .loopinteract", {display:"none"})
    
 
+   gsap.set("#status", {color:"#e3d9cd", fontSize:"19px", marginLeft:8, width:"auto"});
+    
 
         // if (playElement.className == "stop") {
 
@@ -189,9 +192,6 @@ gsap.set("#statusTitle, #statusInfo, #statusInformation, #statusItems", {autoAlp
 document.getElementById('statusGif').style.display = 'block';
 
 
-    
-
-    
 
 
     status.innerHTML = "MASTER EDIT"
@@ -274,7 +274,7 @@ async function presetLoaded() {
 
 function render() {
     console.log("Download")
-    status.innerHTML = "RENDERING EDIT"
+    status.innerHTML = "RENDERING EDIT..."
     const renderingPromise = Tone.Offline(({ transport }) => {
         transport.bpm.value = bpm;
 
@@ -298,6 +298,14 @@ function render() {
     renderingPromise.then(buffer => {
         status.innerHTML = "MASTER EDIT"
         makeDownload(buffer.get())
+        gsap.fromTo("#master_controls", {backgroundColor:"#776388", ease: "Power1.easeOut"}, {backgroundColor:"#DED8CB"});
+gsap.set("#play-toggle, #download, #trackRepeat, .repeat-text, .loopinteract", {display:"block"})
+
+
+gsap.set("#status", {color:"#576B68", fontSize:"10px", marginLeft:0, width:"98px"});
+
+    
+
     });
 
     renderingPromise.then(() => {

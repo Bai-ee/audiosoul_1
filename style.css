@@ -1664,7 +1664,7 @@
     max-height: 90vh;
     border: 20px;
     /* border-radius: 530px; */
-    width:420px;
+    min-width:350px;
     height:420px;
     display:flex; position:fixed; justify-content: center;align-items: center; width: 300px;height: 250px;opacity: 1;visibility: inherit;max-width: 90vw;max-height: 90vh;align-content: center;flex-direction: column;background-color:#DED8CB ;border-radius: 30px;border-width:10px !important; border-color: #576B68 !important; border: 1px solid;
     border-color: #576B68; padding:0px; width:420px; height:420px;
@@ -4392,6 +4392,7 @@ display:none;
     line-height: 1;
     /* width: 50px; */
     font-family: poppinsBlk;
+    margin-left: 0px;
 }
 
 #master_controls_expand {
@@ -5762,8 +5763,12 @@ display:none;
   }
   
   #progress_total, #progress_current{
-    color: var(--txt_progress_color);
+    /* color: var(--txt_progress_color); */
     width: 47px;
+    font-family: poppinsBlk;
+    color:#776388;
+    font-size:13px;
+    text-align:right;
   }
   
   
@@ -5828,12 +5833,12 @@ display:none;
   #presets {
     overflow: hidden;
     display: flex;
-    left: 4px;
+    left: 0px;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
     height: 29px;
     max-height: 29px;
-    width: 312px;
+    width: 297px;
     z-index: -1;
     position: relative;
     perspective: 0px;
@@ -6005,9 +6010,10 @@ display:none;
   #progress_cont progress {
     background-color: var(--txt-box);
     height: 2px;
-    width: 200px;
+    width: 291px;
     margin: 5px 5px;
     border-radius:3;
+    margin-left:8px;
   }
   
   #loop {
@@ -6115,7 +6121,7 @@ display:none;
     padding-left: 0px;
     padding-right: 0px;
     background-size: fit;
-    margin-left: auto;
+    margin-left: 20px;
     margin-right: auto;
     /* margin-top: -30px; */
     min-height: 64px;
@@ -6132,7 +6138,7 @@ display:none;
     background-size: contain;
     margin-bottom: 0px;
     height:110px;
-    width:100%;
+    width:90%;
   }
   
   #artist_cont {

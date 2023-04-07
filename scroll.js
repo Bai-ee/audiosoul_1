@@ -90,91 +90,91 @@ document.getElementById("statusTitle").innerHTML = "LOADING...";
 
 function startMessaging() {
 
-  document.getElementById("statusTitle").innerHTML = "LOADING";
+  document.getElementById("statusTitle").innerHTML = "INTERACTIVE MUSIC..";
 
-  document.getElementById("statusInformation").innerHTML = "A Digital Audio Workstation Interface";
+  document.getElementById("statusInformation").innerHTML = "Digital Audio Workstation Interface";
 
   document.getElementById("statusInfo").innerHTML = "";
 
 }
 
-// setTimeout(startMessaging, 5000); 
+setTimeout(startMessaging, 5000); 
 
-function startMessaging2() {
-
-  document.getElementById("statusTitle").innerHTML = "I.P.F.S";
-
-  document.getElementById("statusInformation").innerHTML = "From a distributed file system";
-
-  document.getElementById("statusInfo").innerHTML = "";
-  
-}
-
-// setTimeout(startMessaging2, 10000); 
 
 function startMessaging3() {
 
-  document.getElementById("statusTitle").innerHTML = "HI-FI FILES";
+  document.getElementById("statusTitle").innerHTML = "HI-FI FILES...";
 
-  document.getElementById("statusInformation").innerHTML = "Load times vary across devices and location";
+  document.getElementById("statusInformation").innerHTML = "";
+
+  document.getElementById("statusInfo").innerHTML = "Editable & exportable as 16bit wavs";
+  
+}
+
+function startMessaging2() {
+
+  document.getElementById("statusTitle").innerHTML = "FROM A DISTRIBUTED FILE SYSTEM...";
+
+  document.getElementById("statusInformation").innerHTML = "Load times vary by device & location";
 
   document.getElementById("statusInfo").innerHTML = "";
   
-
-  
 }
 
-setTimeout(startMessaging3, 10000); 
+setTimeout(startMessaging2, 10000); 
+
+
+setTimeout(startMessaging3, 15000); 
 
 function startMessaging4() {
 
-  document.getElementById("statusTitle").innerHTML = "SOON";
+  document.getElementById("statusTitle").innerHTML = "STILL WORKING...";
 
-  document.getElementById("statusInformation").innerHTML = "You can edit this track and/or download";
-
-}
-
-// setTimeout(startMessaging4, 20000); 
-
-function startMessaging4() {
-
-  document.getElementById("statusTitle").innerHTML = "THANKS FOR WATING";
-
-  document.getElementById("statusInformation").innerHTML = "Load times improve as you interact with the player";
+  document.getElementById("statusInformation").innerHTML = "This experience loads best on a desktop wireless connection";
 
 }
 
 setTimeout(startMessaging4, 20000); 
 
-function startMessaging5() {
+function startMessaging4() {
 
-  document.getElementById("statusTitle").innerHTML = "ON MOBILE?";
+  document.getElementById("statusTitle").innerHTML = "THANKS FOR WATING...";
 
-  document.getElementById("statusInformation").innerHTML = "Desktop connections perform best";
+  document.getElementById("statusInformation").innerHTML = "It can easily take this long the first time its loaded";
 
 }
 
-// setTimeout(startMessaging5, 30000); 
+setTimeout(startMessaging4, 25000); 
+
+function startMessaging5() {
+
+  document.getElementById("statusTitle").innerHTML = "HOWEVER...";
+
+  document.getElementById("statusInformation").innerHTML = "If the player doesn't load soon it may be a bad connection";
+
+}
+
+setTimeout(startMessaging5, 35000); 
 
 function startMessaging6() {
 
-  document.getElementById("statusTitle").innerHTML = "REFRESH";
+  document.getElementById("statusTitle").innerHTML = "GIVE IT A BIT MORE TIME...";
 
-  document.getElementById("statusInformation").innerHTML = "Sorry we can't complete your request. Please try again later.";
+  document.getElementById("statusInformation").innerHTML = "All assets need to load before the player can load";
 
 }
 
-setTimeout(startMessaging6, 30000); 
+setTimeout(startMessaging6, 40000); 
 
 function startMessaging7() {
 
-  document.getElementById("statusTitle").innerHTML = "I.P.F.S";
+  document.getElementById("statusTitle").innerHTML = "KEEP PUSHING ON...";
 
-  document.getElementById("statusInformation").innerHTML = "From a distributed file system";
+  document.getElementById("statusInformation").innerHTML = "If it doesn't load in the next 15 seconds please try again later";
 
 }
 
-// setTimeout(startMessaging7, 10000); 
+setTimeout(startMessaging7, 45000); 
 
 // function startMessaging7() {
 
