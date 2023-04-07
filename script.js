@@ -741,56 +741,51 @@ function validateToken(viewer, objkt){
     console.log("• Collectors are not allowed to distribute or repackage for direct sale or distribution in any way.")
     console.log("• Collector will assume no other rights.")
     
-        const url = 'https://api.tzkt.io/v1/bigmaps/511/keys?key.address=' + viewer + '&key.nat=' + objkt + '&select=value';
-        axios.get(url)
-        .then(result => {
-            let count = result.data ?? [];
-            isOwned = count.length > 0;
+        // const url = 'https://api.tzkt.io/v1/bigmaps/511/keys?key.address=' + viewer + '&key.nat=' + objkt + '&select=value';
+        // axios.get(url)
+        // .then(result => {
+        //     let count = result.data ?? [];
+        //     isOwned = count.length > 0;
     
     console.log("////////VERIFYING OWNER...")
-    console.log("VIEWER:")
-    console.log(viewer)
-    console.log("OBJKT:")
-    console.log(objkt)
+    // console.log("VIEWER:")
+    // console.log(viewer)
+    // console.log("OBJKT:")
+    // console.log(objkt)
     
       
-            console.log(isOwned + " isOwned")
+            // console.log(isOwned + " isOwned")
       
-            if(isOwned){
+            // if(isOwned){
     
-                console.log("CONFIRMING:")
-                console.log(isOwned)
-                console.log("• Owner Verified: Downloads Enabled")
-                console.log("DOWNLOADS ENABLED")
+                // console.log("CONFIRMING:")
+                // console.log(isOwned)
+                // console.log("• Owner Verified: Downloads Enabled")
+                // console.log("DOWNLOADS ENABLED")
     
-                downloadButton.style.display = 'block';
-                purchaseElement.style.display = 'none';
+                // downloadButton.style.display = 'block';
+                // purchaseElement.style.display = 'none';
 
-                downloadButton.onclick = function () {
-                    render();
-                }
+                // downloadButton.onclick = function () {
+                //     render();
+                // }
                 
-                } else {
-    
+                // } else {
+    // 
                 console.log("CONFIRMING:")
-                console.log(isOwned)                    
+                // console.log(isOwned)                    
                 console.log("• Owner Not Verified: Collect to Unlock Downloads")
                 console.log("COLLECT TO DOWNLOAD")
     
-                // downloadButton.style.display = 'none';
-                // purchaseElement.style.display = 'block';
 
-                downloadButton.style.display = 'block';
-                purchaseElement.style.display = 'none';
+                downloadButton.style.display = 'none';
+                purchaseElement.style.display = 'block';
 
-                downloadButton.onclick = function () {
-                    render();
-                }
                 
-                }
-            })
-        .catch(err => console.log('error', err));
-      }
+            }
+            // })
+        // .catch(err => console.log('error', err));
+    //   }
     
     
     validateToken(viewer, objkt)
