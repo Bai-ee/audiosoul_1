@@ -371,7 +371,7 @@
   -1px  1px 0px #555; */
   }
 
-  
+
   
   #preview {
     background-color: transparent;
@@ -1664,7 +1664,7 @@
     max-height: 90vh;
     border: 20px;
     /* border-radius: 530px; */
-    width:420px;
+    min-width:360px;
     height:420px;
     display:flex; position:fixed; justify-content: center;align-items: center; width: 300px;height: 250px;opacity: 1;visibility: inherit;max-width: 90vw;max-height: 90vh;align-content: center;flex-direction: column;background-color:#DED8CB ;border-radius: 30px;border-width:10px !important; border-color: #576B68 !important; border: 1px solid;
     border-color: #576B68; padding:0px; width:420px; height:420px;
@@ -5828,9 +5828,9 @@ display:none;
   #presets {
     overflow: hidden;
     display: flex;
-    left: 4px;
+    left: 0px;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
     height: 29px;
     max-height: 29px;
     width: 312px;
@@ -6133,6 +6133,7 @@ display:none;
     margin-bottom: 0px;
     height:110px;
     width:100%;
+    margin-left: 20px;
   }
   
   #artist_cont {

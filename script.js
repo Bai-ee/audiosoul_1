@@ -26,7 +26,7 @@ purchaseElement.addEventListener('click', function(){
 
     downloadButton.addEventListener('click', function(){
 
-        gsap.fromTo("#master_controls", {backgroundColor:"#4F5B53", ease: "Power1.easeOut"}, {backgroundColor:"transparent"});
+        gsap.fromTo("#master_controls", {backgroundColor:"#4F5B53", ease: "Power1.easeOut"}, {backgroundColor:"#776388"});
    
 
 
